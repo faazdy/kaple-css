@@ -1,0 +1,28 @@
+// ============================================================
+//  ABSTRACTS — Variables Sass
+//  Espejo de los design tokens como variables Sass.
+//  Úsalas en mixins y funciones. Los CSS custom properties
+//  reales viven en base/_tokens.scss
+// ============================================================
+
+// Breakpoints
+$bp-sm:  640px;
+$bp-md:  768px;
+$bp-lg:  1024px;
+$bp-xl:  1280px;
+$bp-2xl: 1536px;
+
+// Containers (espejo de tokens)
+$container-sm:  640px;
+$container-md:  768px;
+$container-lg:  1024px;
+$container-xl:  1280px;
+$container-2xl: 1536px;
+
+// Espaciado base
+$space-unit: 0.25rem; // 4px — base para la escala
+
+// Z-index layers
+$z-navbar:  100;
+$z-overlay: 200;
+$z-tooltip: 1000;

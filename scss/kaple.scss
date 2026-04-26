@@ -1,0 +1,22 @@
+// ============================================================
+//  KAPLE CSS — Framework Entry Point
+//  Modular Architecture (7-1 Pattern)
+// ============================================================
+
+// 1. Base styles (Tokens, Reset, Typography)
+@use "base";
+
+// 2. Layout (Grid, Container)
+@use "layout";
+
+// 3. Components (Buttons, Cards, Forms, etc.)
+@use "components";
+
+// 4. Page Sections (Hero, Features, Pricing, etc.)
+@use "sections";
+
+// 5. Utilities (Spacing, Alignment, Misc) - Loaded late for overrides
+@use "utilities";
+
+// 6. Animations (Keyframes and classes)
+@use "animations";

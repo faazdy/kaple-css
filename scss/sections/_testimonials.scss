@@ -1,0 +1,39 @@
+// ============================================================
+//  SECTION — Testimonials
+//  Sección 30 del main.css original
+// ============================================================
+
+.testimonials-grid { grid-template-columns: repeat(3, 1fr); }
+
+.testimonial {
+  padding: var(--space-5);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  background: var(--color-surface);
+}
+
+.testimonial-text {
+  font-size: var(--text-sm);
+  line-height: var(--leading-relaxed);
+  color: var(--color-text-secondary);
+  margin-bottom: var(--space-4);
+}
+
+.testimonial-author {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.author-name {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.author-role {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+}
+
+// Responsive
+@media (max-width: 900px) { .testimonials-grid { grid-template-columns: 1fr; } }

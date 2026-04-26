@@ -1,0 +1,20 @@
+// ============================================================
+//  COMPONENT — Notice / Callout / Alert
+//  Sección 16 del main.css original
+// ============================================================
+
+.notice {
+  display: flex;
+  gap: var(--space-3);
+  padding: var(--space-3) var(--space-4);
+  border-radius: var(--radius-md);
+  font-size: var(--text-sm);
+  border: 1px solid transparent;
+}
+
+// ── Variants ─────────────────────────────────────────────────
+.notice-default { background: var(--color-bg-muted);    border-color: var(--color-border);               color: var(--color-text-secondary); }
+.notice-success { background: var(--color-success-bg);  border-color: rgba(22, 163, 74, 0.2);             color: var(--color-success); }
+.notice-warning { background: var(--color-warning-bg);  border-color: rgba(202, 138, 4, 0.2);             color: var(--color-warning); }
+.notice-danger  { background: var(--color-danger-bg);   border-color: rgba(220, 38, 38, 0.2);             color: var(--color-danger); }
+.notice-info    { background: var(--color-info-bg);     border-color: rgba(37, 99, 235, 0.2);             color: var(--color-info); }

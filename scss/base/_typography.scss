@@ -1,0 +1,153 @@
+// ============================================================
+//  BASE — Typography
+//  Sección 3 del main.css original
+//  Incluye: headings, display, utilidades de texto, code/pre
+// ============================================================
+
+// ── Headings ─────────────────────────────────────────────────
+h1, .h1 {
+  font-size: var(--text-4xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  line-height: var(--leading-tight);
+}
+h2, .h2 {
+  font-size: var(--text-3xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-tight);
+}
+h3, .h3 {
+  font-size: var(--text-2xl);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-snug);
+  line-height: var(--leading-snug);
+}
+h4, .h4 {
+  font-size: var(--text-xl);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-snug);
+}
+h5, .h5 {
+  font-size: var(--text-lg);
+  font-weight: var(--weight-medium);
+}
+h6, .h6 {
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+}
+
+// ── Display sizes ─────────────────────────────────────────────
+.display-1 {
+  font-size: var(--text-6xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.05em;
+  line-height: 1.1;
+}
+.display-2 {
+  font-size: var(--text-5xl);
+  font-weight: var(--weight-bold);
+  letter-spacing: -0.04em;
+  line-height: 1.1;
+}
+
+p { line-height: var(--leading-relaxed); }
+
+// ── Font size utilities ───────────────────────────────────────
+.text-xs   { font-size: var(--text-xs); }
+.text-sm   { font-size: var(--text-sm); }
+.text-base { font-size: var(--text-base); }
+.text-lg   { font-size: var(--text-lg); }
+.text-xl   { font-size: var(--text-xl); }
+.text-2xl  { font-size: var(--text-2xl); }
+.text-3xl  { font-size: var(--text-3xl); }
+.text-4xl  { font-size: var(--text-4xl); }
+.text-5xl  { font-size: var(--text-5xl); }
+.text-6xl  { font-size: var(--text-6xl); }
+
+// ── Font weight utilities ─────────────────────────────────────
+.font-normal   { font-weight: var(--weight-normal); }
+.font-medium   { font-weight: var(--weight-medium); }
+.font-semibold { font-weight: var(--weight-semibold); }
+.font-bold     { font-weight: var(--weight-bold); }
+
+// ── Letter spacing utilities ──────────────────────────────────
+.tracking-tight  { letter-spacing: var(--tracking-tight); }
+.tracking-snug   { letter-spacing: var(--tracking-snug); }
+.tracking-normal { letter-spacing: var(--tracking-normal); }
+.tracking-wide   { letter-spacing: var(--tracking-wide); }
+.tracking-wider  { letter-spacing: var(--tracking-wider); }
+
+// ── Line height utilities ─────────────────────────────────────
+.leading-tight   { line-height: var(--leading-tight); }
+.leading-snug    { line-height: var(--leading-snug); }
+.leading-normal  { line-height: var(--leading-normal); }
+.leading-relaxed { line-height: var(--leading-relaxed); }
+
+// ── Color utilities ───────────────────────────────────────────
+.text-primary   { color: var(--color-text-primary); }
+.text-secondary { color: var(--color-text-secondary); }
+.text-tertiary  { color: var(--color-text-tertiary); }
+.text-disabled  { color: var(--color-text-disabled); }
+.text-inverse   { color: var(--color-text-inverse); }
+.text-accent    { color: var(--color-accent); }
+.text-success   { color: var(--color-success); }
+.text-warning   { color: var(--color-warning); }
+.text-danger    { color: var(--color-danger); }
+.text-info      { color: var(--color-info); }
+
+// ── Alignment ─────────────────────────────────────────────────
+.text-left   { text-align: left; }
+.text-center { text-align: center; }
+.text-right  { text-align: right; }
+
+// ── Wrapping & truncation ─────────────────────────────────────
+.text-balance  { text-wrap: balance; }
+.text-pretty   { text-wrap: pretty; }
+.text-nowrap   { white-space: nowrap; }
+.text-truncate { overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+
+// ── Transform ────────────────────────────────────────────────
+.uppercase  { text-transform: uppercase; }
+.lowercase  { text-transform: lowercase; }
+.capitalize { text-transform: capitalize; }
+
+// ── Mono font ────────────────────────────────────────────────
+.font-mono { font-family: var(--font-mono); }
+
+code, kbd, pre, samp {
+  font-family: var(--font-mono);
+  font-size: 0.9em;
+}
+
+code {
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xs);
+  padding: 0.15em 0.4em;
+  font-size: var(--text-sm);
+}
+
+pre {
+  background: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-4);
+  overflow-x: auto;
+  font-size: var(--text-sm);
+  line-height: 1.6;
+
+  code {
+    background: transparent;
+    border: none;
+    padding: 0;
+    font-size: inherit;
+  }
+}
+
+blockquote {
+  border-left: 2px solid var(--color-border-strong);
+  padding-left: var(--space-4);
+  color: var(--color-text-secondary);
+  font-size: var(--text-lg);
+}

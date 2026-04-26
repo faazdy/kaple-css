@@ -1,0 +1,129 @@
+// ============================================================
+//  UTILITIES — Misc
+//  Sección 20 del main.css original
+//  Incluye: sizing, overflow, position, z-index, opacity,
+//           transitions, transforms, filters, efectos especiales
+//           y responsive hidden utils
+// ============================================================
+
+// ── Sizing ────────────────────────────────────────────────────
+.w-full      { width: 100%; }
+.w-auto      { width: auto; }
+.h-full      { height: 100%; }
+.h-auto      { height: auto; }
+.h-screen    { height: 100vh; }
+.min-h-screen { min-height: 100vh; }
+
+// ── Overflow ─────────────────────────────────────────────────
+.overflow-hidden { overflow: hidden; }
+.overflow-auto   { overflow: auto; }
+.overflow-x-auto { overflow-x: auto; }
+
+// ── Position ─────────────────────────────────────────────────
+.relative { position: relative; }
+.absolute { position: absolute; }
+.fixed    { position: fixed; }
+.sticky   { position: sticky; }
+.inset-0  { inset: 0; }
+.top-0    { top: 0; }
+
+// ── Z-index ───────────────────────────────────────────────────
+.z-10  { z-index: 10; }
+.z-50  { z-index: 50; }
+.z-100 { z-index: 100; }
+
+// ── Cursor & interaction ──────────────────────────────────────
+.cursor-pointer      { cursor: pointer; }
+.select-none         { user-select: none; }
+.pointer-events-none { pointer-events: none; }
+
+// ── Opacity ───────────────────────────────────────────────────
+.opacity-0   { opacity: 0; }
+.opacity-50  { opacity: 0.5; }
+.opacity-75  { opacity: 0.75; }
+.opacity-100 { opacity: 1; }
+
+// ── Transitions ───────────────────────────────────────────────
+.transition          { transition: all var(--transition-base); }
+.transition-colors   { transition: color var(--transition-base), background-color var(--transition-base), border-color var(--transition-base); }
+.transition-transform { transition: transform var(--transition-base); }
+
+// ── Transforms ────────────────────────────────────────────────
+.scale-95  { transform: scale(0.95); }
+.scale-100 { transform: scale(1); }
+.scale-105 { transform: scale(1.05); }
+
+// ── Filters ───────────────────────────────────────────────────
+.blur-sm { filter: blur(4px); }
+.blur    { filter: blur(8px); }
+
+// ── Special effects ───────────────────────────────────────────
+
+// Gradient text
+.text-gradient {
+  background: linear-gradient(135deg, var(--color-text-primary) 0%, var(--color-text-tertiary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+// Glassmorphism
+.glass {
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.3);
+}
+[data-theme="dark"] .glass {
+  background: rgba(10, 10, 10, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+// Noise texture
+.noise::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  opacity: 0.025;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  border-radius: inherit;
+}
+
+// Animated gradient background
+@keyframes gradient-shift {
+  0%   { background-position: 0% 50%; }
+  50%  { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+.gradient-animated {
+  background: linear-gradient(-45deg, #f5f5f5, #e8e8e8, #f0f0f0, #fafafa);
+  background-size: 400% 400%;
+  animation: gradient-shift 8s ease infinite;
+}
+
+// Focus ring utility
+.focus-ring:focus-visible {
+  outline: 2px solid var(--color-border-focus);
+  outline-offset: 2px;
+}
+
+// Screen reader only
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// ── Responsive hidden utilities ───────────────────────────────
+@media (max-width: 640px)  { .hide-sm { display: none !important; } }
+@media (max-width: 768px)  { .hide-md { display: none !important; } }
+@media (max-width: 1024px) { .hide-lg { display: none !important; } }
+@media (min-width: 641px)  { .show-sm { display: none !important; } }

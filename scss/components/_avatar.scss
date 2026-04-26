@@ -1,0 +1,41 @@
+// ============================================================
+//  COMPONENT — Avatar
+//  Sección 11 del main.css original
+// ============================================================
+
+.avatar {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  background-color: var(--color-bg-muted);
+  border: 1px solid var(--color-border);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-secondary);
+  overflow: hidden;
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+
+  img { width: 100%; height: 100%; object-fit: cover; }
+}
+
+// ── Sizes ─────────────────────────────────────────────────────
+.avatar-xs { width: 24px; height: 24px; font-size: 10px; }
+.avatar-sm { width: 32px; height: 32px; font-size: var(--text-xs); }
+.avatar-md { width: 40px; height: 40px; font-size: var(--text-sm); }
+.avatar-lg { width: 48px; height: 48px; font-size: var(--text-base); }
+.avatar-xl { width: 64px; height: 64px; font-size: var(--text-lg); }
+
+// ── Avatar group (stacked) ────────────────────────────────────
+.avatar-group {
+  display: flex;
+
+  .avatar {
+    border: 2px solid var(--color-bg);
+    margin-left: -8px;
+
+    &:first-child { margin-left: 0; }
+  }
+}

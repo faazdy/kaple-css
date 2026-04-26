@@ -1,0 +1,48 @@
+// ============================================================
+//  SECTION — Code Window
+//  Sección 27 del main.css original
+// ============================================================
+
+.code-window {
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-xl);
+  overflow: hidden;
+  box-shadow: var(--shadow-xl);
+}
+
+.code-titlebar {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  padding: var(--space-3) var(--space-4);
+  background: var(--color-bg-muted);
+  border-bottom: 1px solid var(--color-border);
+}
+
+// macOS-style traffic light dots
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--color-border-strong);
+}
+
+.code-body {
+  background: var(--color-bg-subtle);
+  padding: var(--space-5) var(--space-6);
+  font-family: var(--font-mono);
+  font-size: var(--text-sm);
+  line-height: 1.7;
+}
+
+// Syntax highlight tokens
+.code-comment { color: var(--color-text-tertiary); }
+.code-tag     { color: #7c6af7; }
+.code-attr    { color: #2b8a6a; }
+.code-string  { color: #b56b4a; }
+
+[data-theme="dark"] {
+  .code-tag    { color: #a5a0ff; }
+  .code-attr   { color: #5ccba4; }
+  .code-string { color: #f09060; }
+}

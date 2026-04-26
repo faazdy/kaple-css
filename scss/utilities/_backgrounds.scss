@@ -1,0 +1,38 @@
+// ============================================================
+//  UTILITIES — Backgrounds, Borders & Shadows
+//  Sección 6 del main.css original
+// ============================================================
+
+// ── Backgrounds ───────────────────────────────────────────────
+.bg-base    { background-color: var(--color-bg); }
+.bg-subtle  { background-color: var(--color-bg-subtle); }
+.bg-muted   { background-color: var(--color-bg-muted); }
+.bg-overlay { background-color: var(--color-bg-overlay); }
+.bg-surface { background-color: var(--color-surface); }
+.bg-accent  { background-color: var(--color-accent); color: var(--color-text-inverse); }
+
+// ── Borders ───────────────────────────────────────────────────
+.border        { border: 1px solid var(--color-border); }
+.border-strong { border: 1px solid var(--color-border-strong); }
+.border-t      { border-top: 1px solid var(--color-border); }
+.border-b      { border-bottom: 1px solid var(--color-border); }
+.border-l      { border-left: 1px solid var(--color-border); }
+.border-r      { border-right: 1px solid var(--color-border); }
+.border-0      { border: none; }
+
+// ── Border radius ─────────────────────────────────────────────
+.rounded-xs   { border-radius: var(--radius-xs); }
+.rounded-sm   { border-radius: var(--radius-sm); }
+.rounded      { border-radius: var(--radius-md); }
+.rounded-lg   { border-radius: var(--radius-lg); }
+.rounded-xl   { border-radius: var(--radius-xl); }
+.rounded-2xl  { border-radius: var(--radius-2xl); }
+.rounded-full { border-radius: var(--radius-full); }
+
+// ── Shadows ───────────────────────────────────────────────────
+.shadow-xs   { box-shadow: var(--shadow-xs); }
+.shadow-sm   { box-shadow: var(--shadow-sm); }
+.shadow      { box-shadow: var(--shadow-md); }
+.shadow-lg   { box-shadow: var(--shadow-lg); }
+.shadow-xl   { box-shadow: var(--shadow-xl); }
+.shadow-none { box-shadow: none; }

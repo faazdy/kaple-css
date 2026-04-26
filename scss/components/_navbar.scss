@@ -1,0 +1,89 @@
+// ============================================================
+//  COMPONENT — Navbar
+//  Sección 13 (clase .navbar) + Sección 22 (nav semántico)
+// ============================================================
+
+// ── Clase .navbar (componente utilitario) ─────────────────────
+.navbar {
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-6);
+  height: 60px;
+  border-bottom: 1px solid var(--color-border);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  background-color: rgba(255, 255, 255, 0.85);
+}
+
+@media (prefers-color-scheme: dark) {
+  .navbar { background-color: rgba(10, 10, 10, 0.85); }
+}
+[data-theme="dark"] .navbar { background-color: rgba(10, 10, 10, 0.85); }
+
+.navbar-brand {
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-tight);
+}
+.navbar-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+
+.nav-link {
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  border-radius: var(--radius-sm);
+  transition: color var(--transition-base), background-color var(--transition-base);
+
+  &:hover { color: var(--color-text-primary); background-color: var(--color-bg-overlay); }
+  &.active { color: var(--color-text-primary); font-weight: var(--weight-medium); }
+}
+
+// ── Elemento semántico <nav> (layout de landing) ──────────────
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 var(--space-8);
+  height: 60px;
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid var(--color-border);
+  transition: border-color var(--transition-slow), background var(--transition-slow);
+}
+[data-theme="dark"] nav { background: rgba(10, 10, 10, 0.85); }
+
+.nav-logo {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  letter-spacing: var(--tracking-tight);
+  color: var(--color-text-primary);
+}
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--space-1);
+}
+.nav-actions {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+}
+
+// Responsive
+@media (max-width: 768px) {
+  nav { padding: 0 var(--space-4); }
+  .nav-links { display: none; }
+}

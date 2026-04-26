@@ -1,0 +1,70 @@
+// ============================================================
+//  ABSTRACTS — Mixins
+// ============================================================
+
+@use 'variables' as *;
+
+// Respond-to: media query helper
+// Uso: @include respond-to(md) { ... }
+@mixin respond-to($breakpoint) {
+  @if $breakpoint == sm {
+    @media (max-width: #{$bp-sm})  { @content; }
+  } @else if $breakpoint == md {
+    @media (max-width: #{$bp-md})  { @content; }
+  } @else if $breakpoint == lg {
+    @media (max-width: #{$bp-lg})  { @content; }
+  } @else if $breakpoint == xl {
+    @media (max-width: #{$bp-xl})  { @content; }
+  } @else if $breakpoint == 2xl {
+    @media (max-width: #{$bp-2xl}) { @content; }
+  }
+}
+
+// Respond-from: min-width helper
+// Uso: @include respond-from(md) { ... }
+@mixin respond-from($breakpoint) {
+  @if $breakpoint == sm {
+    @media (min-width: #{$bp-sm})  { @content; }
+  } @else if $breakpoint == md {
+    @media (min-width: #{$bp-md})  { @content; }
+  } @else if $breakpoint == lg {
+    @media (min-width: #{$bp-lg})  { @content; }
+  } @else if $breakpoint == xl {
+    @media (min-width: #{$bp-xl})  { @content; }
+  }
+}
+
+// Flex center shorthand
+@mixin flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+// Truncate text
+@mixin truncate {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+// Visually hidden (sr-only)
+@mixin visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border-width: 0;
+}
+
+// Focus ring
+@mixin focus-ring {
+  &:focus-visible {
+    outline: 2px solid var(--color-border-focus);
+    outline-offset: 2px;
+  }
+}

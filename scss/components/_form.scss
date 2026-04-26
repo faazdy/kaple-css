@@ -1,0 +1,152 @@
+// ============================================================
+//  COMPONENT — Form Elements
+//  Sección 8 del main.css original
+//  Incluye: label, input, textarea, select, checkbox, radio, toggle
+// ============================================================
+
+// ── Label ─────────────────────────────────────────────────────
+.label {
+  display: block;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-primary);
+  margin-bottom: var(--space-1);
+}
+
+// ── Input / Textarea / Select base ───────────────────────────
+.input,
+.textarea,
+.select {
+  display: block;
+  width: 100%;
+  padding: var(--space-2) var(--space-3);
+  font-size: var(--text-sm);
+  font-family: var(--font-sans);
+  color: var(--color-text-primary);
+  background-color: var(--color-bg);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-sm);
+  transition: border-color var(--transition-base), box-shadow var(--transition-base);
+  appearance: none;
+  -webkit-appearance: none;
+  line-height: 1.5;
+
+  &::placeholder { color: var(--color-text-tertiary); }
+
+  &:hover { border-color: var(--color-border-focus); }
+
+  &:focus {
+    outline: none;
+    border-color: var(--color-accent);
+    box-shadow: 0 0 0 3px var(--color-accent-subtle);
+  }
+
+  &:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background-color: var(--color-bg-muted);
+  }
+}
+
+// Error state
+.input-error {
+  border-color: var(--color-danger) !important;
+
+  &:focus { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important; }
+}
+
+// Textarea specifics
+.textarea {
+  resize: vertical;
+  min-height: 80px;
+}
+
+// Select specifics
+.select {
+  cursor: pointer;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%236b6b6b' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: var(--space-8);
+}
+
+// ── Form group & hints ────────────────────────────────────────
+.form-group { margin-bottom: var(--space-4); }
+
+.form-hint {
+  font-size: var(--text-xs);
+  color: var(--color-text-tertiary);
+  margin-top: var(--space-1);
+}
+
+.form-error {
+  font-size: var(--text-xs);
+  color: var(--color-danger);
+  margin-top: var(--space-1);
+}
+
+// ── Checkbox & Radio ─────────────────────────────────────────
+.checkbox,
+.radio {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--space-2);
+  cursor: pointer;
+  user-select: none;
+  font-size: var(--text-sm);
+
+  input {
+    width: 16px;
+    height: 16px;
+    accent-color: var(--color-accent);
+    cursor: pointer;
+    flex-shrink: 0;
+  }
+}
+
+// ── Toggle ───────────────────────────────────────────────────
+.toggle {
+  position: relative;
+  display: inline-block;
+  width: 36px;
+  height: 20px;
+
+  input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+    position: absolute;
+
+    &:checked + .toggle-slider {
+      background-color: var(--color-accent);
+      border-color: var(--color-accent);
+
+      &::before {
+        transform: translateX(16px);
+        background-color: var(--color-text-inverse);
+      }
+    }
+  }
+}
+
+.toggle-slider {
+  position: absolute;
+  inset: 0;
+  background-color: var(--color-bg-muted);
+  border: 1px solid var(--color-border-strong);
+  border-radius: var(--radius-full);
+  transition: background-color var(--transition-base), border-color var(--transition-base);
+  cursor: pointer;
+
+  &::before {
+    content: '';
+    position: absolute;
+    width: 14px;
+    height: 14px;
+    left: 2px;
+    top: 2px;
+    background-color: var(--color-text-tertiary);
+    border-radius: 50%;
+    transition: transform var(--transition-spring), background-color var(--transition-base);
+  }
+}
