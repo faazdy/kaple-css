@@ -1,6 +1,6 @@
 {
   "name": "kaple-css",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "main": "index.js",
   "scripts": {
     "build": "sass scss/kaple.scss dist/kaple.css --style=expanded --no-source-map",
