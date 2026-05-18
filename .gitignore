@@ -1,3 +1,4 @@
 # ignore build files and design assets
+node_modules
 dist/
 design/
