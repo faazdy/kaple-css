@@ -9,7 +9,7 @@
   <link
     href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Fira+Code:wght@400;500&display=swap"
     rel="stylesheet" />
-  <link rel="stylesheet" href="../dist/kaple.css" />
+  <link rel="stylesheet" href="../../dist/kaple.css" />
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -119,11 +119,11 @@
         <!-- ═══ HERO ═══ -->
         <div class="docs-hero" id="intro">
           <div class="docs-hero-badge"><span></span> v1.0.0 — Beta</div>
-          <h1 class="docs-hero-title">Kaple CSS</h1>
+          <h1 class="docs-hero-title">KapleCSS</h1>
           <p class="docs-hero-desc">Un framework CSS minimalista y premium para construir interfaces limpias, modernas y
             consistentes.</p>
           <div class="docs-hero-meta">
-            <div class="docs-hero-stat"><strong>~10kb</strong>Minificado</div>
+            <div class="docs-hero-stat"><strong>~50kb</strong>Minificado</div>
             <div class="docs-hero-stat"><strong>0</strong>Dependencias</div>
             <div class="docs-hero-stat"><strong>20+</strong>Componentes</div>
             <div class="docs-hero-stat"><strong>100%</strong>CSS Variables</div>
@@ -146,10 +146,15 @@
               <pre><code><span class="t"># Instalar vía npm</span>
 <span class="k">npm</span> install kaple-css
 
-<span class="t"># En tu archivo principal de JS/TS o CSS</span>
-<span class="k">import</span> <span class="s">'kaple-css'</span>;</code></pre>
+<span class="t"># En tu archivo principal de JS/TS</span>
+<span class="k">import</span> <span class="s">'kaple-css/dist/kaple.css'</span>;
+
+<span class="t"># Si usas Sass, en tu archivo SCSS</span>
+<span class="k">@use</span> <span class="s">"kaple-css/dist/kaple.css"</span>;
+</code></pre>
             </div>
           </div>
+          
 
           <p
             style="font-size:var(--text-sm);font-weight:var(--weight-medium);margin-bottom:var(--space-2);margin-top:var(--space-6);">
