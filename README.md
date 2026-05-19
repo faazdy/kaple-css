@@ -1,4 +1,4 @@
-# Kaple CSS
+# KapleCSS
 
 **A Modern, Minimal & Premium CSS Framework.**  
 Inspired by the design language of Vercel, Framer, and Linear. Built for developers who value speed, intention, and clean aesthetics.

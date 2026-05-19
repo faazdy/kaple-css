@@ -1,14 +1,27 @@
 {
-  "cleanUrls": true,
-  "trailingSlash": false,
+  "version": 2,
+  "root": "web",
   "routes": [
     {
-      "handle": "filesystem"
+      "src": "^/docs/?$",
+      "dest": "/docs/index.html"
     },
     {
-      "src": "/(.*)",
-      "status": 404,
-      "dest": "/404.html"
+      "src": "^/docs/(.+)$",
+      "dest": "/docs/$1"
+    },
+    {
+      "src": "^/assets/(.+)$",
+      "dest": "/assets/$1"
+    },
+    {
+      "src": "^/$",
+      "dest": "/index.html"
+    },
+    {
+      "src": ".*",
+      "dest": "/404.html",
+      "status": 404
     }
   ]
 }

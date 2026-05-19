@@ -3,63 +3,73 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>404 Page Not Found — KapleCSS</title>
+  <title>404 — Page Not Found · KapleCSS</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Fira+Code:wght@400;500&display=swap" rel="stylesheet">
-  
-  <!-- Estilos base -->
-  <link rel="stylesheet" href="../dist/kaple.css">
-  <link rel="stylesheet" href="./landing/style.css">
-
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@1,400;1,600&family=Fira+Code:wght@400&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./landing/assets/styles/404.css">
 </head>
 <body>
 
-  <!-- ── NAV ── -->
-  <nav class="mt-3">
-    <div class="logo">
-      <a href="./landing/index.html" class="logo">
-        <img src="./landing/assets/img/kaple-logo.png" alt="KapleCSS Logo">
-        <span>KapleCSS</span>
-      </a>
-    </div>
-    <div class="nav-tags">
-      <a href="./landing/index.html">Home</a>
-      <a href="./docs/index.html" class="btn btn-primary">Docs →</a>
-    </div>
-  </nav>
+  <!-- NAV -->
+  <header>
+    <a href="index.html" class="nav-logo">
+      <img src="./landing/assets/imgs/kaple-logo.png" style="width:28px;height:28px;border-radius:7px" alt="KapleCSS Logo">
+      KapleCSS
+    </a>
+    <a href="index.html" class="nav-back">
+      <svg viewBox="0 0 14 14"><polyline points="9,2 4,7 9,12"/></svg>
+      Back to home
+    </a>
+  </header>
 
+  <!-- MAIN -->
   <main>
-    <section class="error-section my-8">
-      <div class="status-pill mb-4" style="margin-bottom: 1.5rem;">
-        <span class="status-dot" style="background-color: #ef4444;"></span>
-        Error 404
+
+    <div class="error-pill">
+      <span class="error-pill-dot"></span>
+      HTTP 404 — Not Found
+    </div>
+
+    <div class="error-number">4<em>0</em>4</div>
+
+    <h1 class="error-title">Page not found</h1>
+    <p class="error-desc">
+      The page you're looking for doesn't exist or has been moved.
+      Check the URL or head back home.
+    </p>
+
+    <div class="actions">
+      <a href="index.html" class="btn-home">
+        <svg viewBox="0 0 14 14"><path d="M1 7L7 1l6 6M2.5 5.5V13h3.5V9h2v4h3.5V5.5"/></svg>
+        Go home
+      </a>
+      <a href="./docs/index.html" class="btn-docs">Read the docs →</a>
+    </div>
+
+    <div class="suggestions">
+      <p class="suggestions-label">Maybe you were looking for</p>
+      <div class="suggestions-list">
+        <a href="index.html" class="suggestion-item">
+          <span>Landing — KapleCSS home</span>
+          <svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg>
+        </a>
+        <a href="./docs/index.html" class="suggestion-item">
+          <span>Documentation</span>
+          <svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg>
+        </a>
+        <a href="https://github.com/faazdy/kaple-css" target="_blank" class="suggestion-item">
+          <span>GitHub Repository</span>
+          <svg viewBox="0 0 14 14"><polyline points="5,2 10,7 5,12"/></svg>
+        </a>
       </div>
+    </div>
 
-      <div class="error-code mark-important">404 .-.</div>
-
-      <h1 class="display-2">
-        Página No Encontrada<br>
-        <em class="">¡Ups!</em>
-      </h1>
-
-      <p>
-        La ruta que estás buscando no existe o ha sido movida. Volvamos al inicio para que sigas construyendo interfaces increíbles.
-      </p>
-
-      <div class="hero-actions">
-        <a href="./landing/index.html" class="btn btn-primary">Regresar a la Landing</a>
-        <a href="./docs/index.html" class="btn btn-secondary">Ir a la Documentación →</a>
-      </div>
-    </section>
   </main>
 
-  <!-- ── FOOTER ── -->
-  <footer style="margin-top: auto;">
-    <p>© 2026 KapleCSS · Built by <strong>faazdy</strong> · MIT License</p>
-    <div class="footer-links">
-      <a href="https://github.com/faazdy/kaplecss" target="_blank">GitHub</a>
-      <a href="./docs/index.html">Docs</a>
-    </div>
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2026 KapleCSS · MIT License</p>
+    <a href="https://github.com/faazdy/kaple-css" target="_blank">GitHub</a>
   </footer>
 
 </body>
