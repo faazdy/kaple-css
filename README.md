@@ -88,7 +88,7 @@ If you want to contribute or build your own version:
 
 ## License
 
-Kaple CSS is open-source software licensed under the [ISC License](LICENSE).
+Kaple CSS is open-source software licensed under the [MIT License](LICENSE.md).
 
 ---
 
