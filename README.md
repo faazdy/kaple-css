@@ -1,10 +1,12 @@
-# KapleCSS
+<img src="./web/docs/kaple-logo-png.png" width="50px" style="background-color: white; padding: 7px; border-radius: 50%;">
+
+# KapleCSS [BETA]
 
 **A Modern, Minimal & Premium CSS Framework.**  
 Inspired by the design language of Vercel, Framer, and Linear. Built for developers who value speed, intention, and clean aesthetics.
 
 [![npm version](https://img.shields.io/npm/v/kaple-css.svg)](https://www.npmjs.com/package/kaple-css)
-[![license](https://img.shields.io/npm/l/kaple-css.svg)](https://github.com/faazdy/kaple-css)
+[![license](https://img.shields.io/npm/l/kaple-css.svg)](https://github.com/faazdy/kaple-css/)
 
 ---
 
@@ -73,7 +75,7 @@ Simply add this to your `<head>`:
 
 ## Documentation
 
-For full documentation and component examples, check our [Documentation Page](docs.html).
+For full documentation and component examples, check our [Documentation Page](https://kaplecss.vercel.app/docs/index.html).
 
 ---
 
@@ -92,4 +94,5 @@ Kaple CSS is open-source software licensed under the [MIT License](LICENSE.md).
 
 ---
 
-Built with ❤️ by [faazdy](https://github.com/faazdy)
+Built with ❤️ by [faazdy](https://github.com/faazdy) - [portfolio](https://leorengifodev.vercel.app/)
+
