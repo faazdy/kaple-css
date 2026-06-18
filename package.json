@@ -7,9 +7,9 @@
     "watch": "sass scss/kaple.scss dist/kaple.css --watch --style=expanded --no-source-map",
     "build:min": "sass scss/kaple.scss dist/kaple.min.css --style=compressed --no-source-map"
   },
-  "keywords": [],
+  "keywords": ["css", "framework", "modern", "minimal"],
   "author": "faazdy",
-  "license": "ISC",
+  "license": "MIT",
   "description": "Modern & Minimal CSS Framework",
   "devDependencies": {
     "sass": "^1.99.0"

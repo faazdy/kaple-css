@@ -1,8 +1,9 @@
 MIT License
 
 Copyright (c) 2026 Leonardo Rengifo (faazdy)
+
 KapleCSS — Minimal Premium CSS Framework
-https://github.com/faazdy/kaple-css
+https://github.com
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -31,11 +32,11 @@ resources are recommended for use with KapleCSS and are subject to their own
 licenses:
 
   - Inter Typeface  — SIL Open Font License 1.1  — rsms.me/inter
-  - Fira Code       — SIL Open Font License 1.1  — github.com/tonsky/FiraCode
-  - Lora            — SIL Open Font License 1.1  — fonts.google.com/specimen/Lora
+  - Fira Code       — SIL Open Font License 1.1  — ://github.com
+  - Lora            — SIL Open Font License 1.1  — ://google.com
 
 These fonts are not distributed with KapleCSS. When loaded via Google Fonts,
-they are subject to Google's Terms of Service (fonts.google.com/about).
+they are subject to Google's Terms of Service (://google.com).
 
 -------------------------------------------------------------------------------
 
@@ -58,7 +59,8 @@ in describing the origin of the Software (e.g., "Based on KapleCSS").
 
 -------------------------------------------------------------------------------
 
+CONTACT & INQUIRIES
+
 For questions about this license or commercial inquiries, contact:
   leorengifor.dev@gmail.com
-  
-  https://github.com/faazdy/kaple-css
+  https://github.com
