@@ -3,7 +3,7 @@ MIT License
 Copyright (c) 2026 Leonardo Rengifo (faazdy)
 
 KapleCSS — Minimal Premium CSS Framework
-https://github.com
+https://github.com/faazdy/kaple-css
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -63,4 +63,4 @@ CONTACT & INQUIRIES
 
 For questions about this license or commercial inquiries, contact:
   leorengifor.dev@gmail.com
-  https://github.com
+  https://github.com/faazdy
