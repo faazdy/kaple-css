@@ -1,6 +1,6 @@
 {
   "name": "kaple-css",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "main": "dist/kaple.css",
   "style": "dist/kaple.css",
   "sass": "scss/kaple.scss",
@@ -30,7 +30,12 @@
     "test": "node --test \"test/**/*.test.mjs\"",
     "prepublishOnly": "npm run build && npm test"
   },
-  "keywords": ["css", "framework", "modern", "minimal"],
+  "keywords": [
+    "css",
+    "framework",
+    "modern",
+    "minimal"
+  ],
   "author": "faazdy",
   "license": "MIT",
   "description": "Modern & Minimal CSS Framework",
