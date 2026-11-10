@@ -3,6 +3,9 @@
 //  Sección 13 (clase .navbar) + Sección 22 (nav semántico)
 // ============================================================
 
+@use '../config';
+@use '../abstracts' as *;
+
 // ── Clase .navbar (componente utilitario) ─────────────────────
 .navbar {
   display: flex;
@@ -15,13 +18,8 @@
   z-index: 100;
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  background-color: rgba(255, 255, 255, 0.85);
+  background-color: var(--color-bg-blur);
 }
-
-@media (prefers-color-scheme: dark) {
-  .navbar { background-color: rgba(10, 10, 10, 0.85); }
-}
-[data-theme="dark"] .navbar { background-color: rgba(10, 10, 10, 0.85); }
 
 .navbar-brand {
   font-size: var(--text-base);
@@ -45,8 +43,8 @@
   &.active { color: var(--color-text-primary); font-weight: var(--weight-medium); }
 }
 
-// ── Elemento semántico <nav> (layout de landing) ──────────────
-nav {
+// ── .site-nav — fixed landing navigation bar ──────────────────
+@mixin site-nav {
   position: fixed;
   top: 0;
   left: 0;
@@ -57,13 +55,19 @@ nav {
   justify-content: space-between;
   padding: 0 var(--space-8);
   height: 60px;
-  background: rgba(255, 255, 255, 0.85);
+  background: var(--color-bg-blur);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   border-bottom: 1px solid var(--color-border);
   transition: border-color var(--transition-slow), background var(--transition-slow);
 }
-[data-theme="dark"] nav { background: rgba(10, 10, 10, 0.85); }
+
+.site-nav { @include site-nav; }
+
+// Deprecated bare <nav> selector (see $legacy-element-selectors).
+@if config.$legacy-element-selectors {
+  nav { @include site-nav; }
+}
 
 .nav-logo {
   font-size: var(--text-base);
@@ -83,7 +87,10 @@ nav {
 }
 
 // Responsive
-@media (max-width: 768px) {
-  nav { padding: 0 var(--space-4); }
+@include respond-to(md) {
+  .site-nav { padding: 0 var(--space-4); }
+  @if config.$legacy-element-selectors {
+    nav { padding: 0 var(--space-4); }
+  }
   .nav-links { display: none; }
 }

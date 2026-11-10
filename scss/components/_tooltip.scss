@@ -30,5 +30,8 @@
     z-index: 1000;
   }
 
-  &:hover::after { opacity: 1; }
+  // Keyboard users see it too: on the element itself or a focused child.
+  &:hover::after,
+  &:focus-visible::after,
+  &:has(:focus-visible)::after { opacity: 1; }
 }

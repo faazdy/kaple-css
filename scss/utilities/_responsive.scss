@@ -1,0 +1,80 @@
+// ============================================================
+//  UTILITIES — Responsive variants (mobile-first)
+//
+//  `bp:class` applies `class` from that breakpoint up:
+//    <div class="grid grid-1 md:grid-2 lg:grid-4">
+//    <nav class="hidden md:flex">
+//
+//  Every variant mirrors its base class declaration for declaration
+//  (enforced by test/kaple.test.mjs). This file is forwarded last
+//  among the utilities so variants override the base classes.
+// ============================================================
+
+@use 'sass:map';
+@use 'sass:string';
+@use '../abstracts' as *;
+
+// Breakpoints that get variants (2xl is left out to keep the bundle small).
+$_variant-breakpoints: (sm, md, lg, xl);
+
+// Class name → declarations. Keep in sync with the base classes in
+// layout/_grid.scss and base/_typography.scss.
+$_utilities: (
+  // Display
+  'block':        (display: block),
+  'inline-block': (display: inline-block),
+  'flex':         (display: flex),
+  'inline-flex':  (display: inline-flex),
+  'grid':         (display: grid),
+  'hidden':       (display: none),
+
+  // Grid columns & spans
+  'grid-1':  (grid-template-columns: repeat(1, 1fr)),
+  'grid-2':  (grid-template-columns: repeat(2, 1fr)),
+  'grid-3':  (grid-template-columns: repeat(3, 1fr)),
+  'grid-4':  (grid-template-columns: repeat(4, 1fr)),
+  'grid-6':  (grid-template-columns: repeat(6, 1fr)),
+  'grid-12': (grid-template-columns: repeat(12, 1fr)),
+  'col-span-1':    (grid-column: span 1),
+  'col-span-2':    (grid-column: span 2),
+  'col-span-3':    (grid-column: span 3),
+  'col-span-4':    (grid-column: span 4),
+  'col-span-6':    (grid-column: span 6),
+  'col-span-full': (grid-column: string.unquote('1/-1')), // unquoted so Sass doesn't divide
+
+  // Flexbox
+  'flex-row':  (flex-direction: row),
+  'flex-col':  (flex-direction: column),
+  'flex-wrap': (flex-wrap: wrap),
+  'items-start':   (align-items: flex-start),
+  'items-center':  (align-items: center),
+  'items-end':     (align-items: flex-end),
+  'items-stretch': (align-items: stretch),
+  'justify-start':   (justify-content: flex-start),
+  'justify-center':  (justify-content: center),
+  'justify-end':     (justify-content: flex-end),
+  'justify-between': (justify-content: space-between),
+  'justify-around':  (justify-content: space-around),
+
+  // Text alignment
+  'text-left':   (text-align: left),
+  'text-center': (text-align: center),
+  'text-right':  (text-align: right),
+);
+
+// Gap steps reuse the spacing scale.
+@each $step in (1, 2, 3, 4, 5, 6, 8, 10, 12) {
+  $_utilities: map.set($_utilities, 'gap-#{$step}', (gap: map.get($spacing, $step)));
+}
+
+@each $bp in $_variant-breakpoints {
+  @include respond-from($bp) {
+    @each $name, $declarations in $_utilities {
+      .#{$bp}\:#{$name} {
+        @each $property, $value in $declarations {
+          #{$property}: $value;
+        }
+      }
+    }
+  }
+}

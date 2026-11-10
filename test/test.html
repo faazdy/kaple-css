@@ -1,13 +1,324 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="../dist/kaple.min.css">
-    <title>Document</title>
+    <title>Kaple Playground</title>
+    <style>
+        /* Playground-only helpers (not part of Kaple) */
+        .demo-box { min-height: 120px; display: flex; align-items: center; justify-content: center; }
+        .ratio { font-family: var(--font-mono); font-size: 11px; margin-left: 6px; white-space: nowrap; }
+        .ratio.ok { color: var(--color-success); }
+        .ratio.bad { color: var(--color-danger); }
+        .sample { display: flex; align-items: baseline; justify-content: space-between; gap: 8px; }
+        .opt-prev { --color-text-tertiary: #a3a3a3; }
+        [data-theme="dark"] .opt-prev { --color-text-tertiary: #6b6b6b; }
+        @media (prefers-color-scheme: dark) { :root:not([data-theme]) .opt-prev { --color-text-tertiary: #6b6b6b; } }
+        .blob { position: absolute; width: 160px; height: 160px; border-radius: 50%; filter: blur(30px); opacity: .55; }
+    </style>
 </head>
 <body>
-    <h1 class="display-2 pb-6">Hello, World!</h1>
-    <p class="tracking-tight">test page, play with kaple.</p>
+
+    <!-- ═══ NAV — .site-nav (was a bare <nav> selector) ═══ -->
+    <nav class="site-nav">
+        <span class="nav-logo">kaple<span class="text-tertiary hide-sm">.playground</span></span>
+        <div class="nav-links">
+            <a class="nav-link" href="#patterns">Patterns</a>
+            <a class="nav-link" href="#responsive">Responsive</a>
+            <a class="nav-link" href="#themes">Themes</a>
+            <a class="nav-link" href="#a11y">Accessibility</a>
+        </div>
+        <div class="nav-actions">
+            <!-- Live breakpoint indicator, built only with responsive variants -->
+            <span class="badge badge-info inline-flex sm:hidden">xs &lt; 640</span>
+            <span class="badge badge-info hidden sm:inline-flex md:hidden">sm ≥ 640</span>
+            <span class="badge badge-info hidden md:inline-flex lg:hidden">md ≥ 768</span>
+            <span class="badge badge-info hidden lg:inline-flex xl:hidden">lg ≥ 1024</span>
+            <span class="badge badge-info hidden xl:inline-flex">xl ≥ 1280</span>
+            <button class="btn btn-secondary btn-sm" id="theme-toggle" data-tooltip="Cycle system / light / dark">Theme: system</button>
+        </div>
+    </nav>
+
+    <!-- ═══ HERO — grid pattern + radial fade + themed glow ═══ -->
+    <header class="hero bg-grid pattern-lg pattern-fade">
+        <span class="badge badge-dot hero-eyebrow animate">Kaple 1.2 preview</span>
+        <h1 class="display-1 text-gradient animate delay-1">Hello, World!</h1>
+        <p class="hero-subtitle text-secondary mt-4 animate delay-2">test page, play with kaple.</p>
+        <div class="hero-actions flex flex-col sm:flex-row gap-3 mt-8 animate delay-3">
+            <a href="#patterns" class="btn btn-primary btn-lg">See what's new</a>
+            <a href="#a11y" class="btn btn-outline btn-lg">Try it with the keyboard</a>
+        </div>
+        <p class="hero-meta mt-6 animate delay-4">Resize the window, switch the theme, press Tab.</p>
+    </header>
+
+    <main class="container container-xl">
+
+        <!-- ═══ PATTERNS ═══ -->
+        <section class="section" id="patterns">
+            <p class="section-eyebrow">New</p>
+            <h2 class="h2 mb-2">Background patterns</h2>
+            <p class="text-secondary mb-8">Pure CSS. They only set <code>background-image</code>, so they stack with color utilities.</p>
+
+            <div class="grid grid-1 sm:grid-2 lg:grid-4 gap-4">
+                <div class="demo-box bg-dots rounded-lg border"><span class="badge">bg-dots</span></div>
+                <div class="demo-box bg-grid rounded-lg border"><span class="badge">bg-grid</span></div>
+                <div class="demo-box bg-lines rounded-lg border"><span class="badge">bg-lines</span></div>
+                <div class="demo-box bg-diagonal pattern-sm rounded-lg border"><span class="badge">bg-diagonal pattern-sm</span></div>
+
+                <div class="demo-box bg-grid pattern-fade rounded-lg border sm:col-span-2"><span class="badge">bg-grid pattern-fade</span></div>
+                <div class="demo-box bg-dots pattern-strong pattern-fade-b rounded-lg border"><span class="badge">pattern-strong fade-b</span></div>
+                <div class="demo-box bg-muted bg-grid pattern-sm pattern-fade rounded-lg border"><span class="badge">on bg-muted (auto fade)</span></div>
+
+                <div class="demo-box bg-dots rounded-lg border sm:col-span-2 lg:col-span-4"
+                     style="--pattern-color: #6366f1; --pattern-size: 14px; --pattern-thickness: 1.5px; min-height: 90px">
+                    <code>style="--pattern-color: #6366f1; --pattern-size: 14px; --pattern-thickness: 1.5px"</code>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ RESPONSIVE ═══ -->
+        <section class="section" id="responsive">
+            <p class="section-eyebrow">New</p>
+            <h2 class="h2 mb-2">Responsive variants</h2>
+            <p class="text-secondary mb-8">Mobile-first: <code>md:grid-3</code> means "3 columns from 768px up". Watch the badge in the nav while you resize.</p>
+
+            <p class="label">grid grid-1 sm:grid-2 md:grid-3 lg:grid-6 gap-3</p>
+            <div class="grid grid-1 sm:grid-2 md:grid-3 lg:grid-6 gap-3 mb-8">
+                <div class="card card-body text-center font-semibold">1</div>
+                <div class="card card-body text-center font-semibold">2</div>
+                <div class="card card-body text-center font-semibold">3</div>
+                <div class="card card-body text-center font-semibold">4</div>
+                <div class="card card-body text-center font-semibold">5</div>
+                <div class="card card-body text-center font-semibold">6</div>
+            </div>
+
+            <p class="label">flex flex-col md:flex-row gap-2 md:gap-8 · text-center md:text-left</p>
+            <div class="card card-body flex flex-col md:flex-row items-center gap-2 md:gap-8 text-center md:text-left">
+                <div class="avatar avatar-xl">KP</div>
+                <div class="flex-1">
+                    <p class="font-semibold">Stacked and centered on mobile</p>
+                    <p class="text-sm text-secondary">Side by side and left-aligned from md up.</p>
+                </div>
+                <span class="badge badge-success hidden md:inline-flex">only from md</span>
+                <span class="badge badge-warning md:hidden">only below md</span>
+            </div>
+        </section>
+
+        <!-- ═══ THEMES ═══ -->
+        <section class="section" id="themes">
+            <p class="section-eyebrow">Fixed</p>
+            <h2 class="h2 mb-2">Dark mode everywhere</h2>
+            <p class="text-secondary mb-8">These used to stay light when dark mode came from the OS. Use the
+                <strong>Theme</strong> button: <em>system</em> follows your OS, <em>light</em>/<em>dark</em> force it.</p>
+
+            <div class="grid grid-1 md:grid-2 gap-4">
+                <!-- .glass over colorful blobs -->
+                <div class="relative overflow-hidden rounded-xl border bg-dots p-8" style="min-height: 220px">
+                    <span class="blob" style="background:#6366f1; top:-30px; left:-20px"></span>
+                    <span class="blob" style="background:#ec4899; bottom:-40px; right:10px"></span>
+                    <div class="glass rounded-xl p-6 relative">
+                        <p class="font-semibold mb-1">.glass</p>
+                        <p class="text-sm text-secondary">Background and border come from <code>--color-bg-glass</code> and <code>--color-border-glass</code>.</p>
+                    </div>
+                </div>
+
+                <div class="gradient-animated rounded-xl border p-8 flex flex-col justify-center" style="min-height: 220px">
+                    <p class="font-semibold mb-1">.gradient-animated</p>
+                    <p class="text-sm text-secondary">Now has dark stops via <code>--color-gradient-stops</code>.</p>
+                </div>
+
+                <div class="code-window">
+                    <div class="code-titlebar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                    <pre class="code-body"><code><span class="code-comment">&lt;!-- syntax colors are tokens now --&gt;</span>
+<span class="code-tag">&lt;section</span> <span class="code-attr">class</span>=<span class="code-string">"bg-grid pattern-fade"</span><span class="code-tag">&gt;</span>
+  <span class="code-tag">&lt;h1</span> <span class="code-attr">class</span>=<span class="code-string">"text-gradient"</span><span class="code-tag">&gt;</span>Hi<span class="code-tag">&lt;/h1&gt;</span>
+<span class="code-tag">&lt;/section&gt;</span></code></pre>
+                </div>
+
+                <div class="rounded-xl border overflow-hidden">
+                    <div class="navbar justify-between" style="position: relative">
+                        <span class="navbar-brand">.navbar</span>
+                        <div class="navbar-nav">
+                            <a class="nav-link active" href="#themes">Home</a>
+                            <a class="nav-link" href="#themes">Docs</a>
+                        </div>
+                    </div>
+                    <div class="p-6 text-sm text-secondary">
+                        With the OS in dark mode, forcing <em>light</em> used to leave this bar dark.
+                        It now reads <code>--color-bg-blur</code>.
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ ACCESSIBILITY ═══ -->
+        <section class="section" id="a11y">
+            <p class="section-eyebrow">Fixed</p>
+            <h2 class="h2 mb-2">Accessibility</h2>
+            <p class="text-secondary mb-8">Press <kbd>Tab</kbd> to walk through these controls: every one shows where focus is.</p>
+
+            <div class="grid grid-1 md:grid-2 gap-6">
+                <div class="card card-body">
+                    <div class="form-group">
+                        <label class="label" for="email">Email</label>
+                        <input class="input" id="email" type="email" placeholder="you@example.com">
+                        <p class="form-hint">Hints now pass WCAG AA (4.74:1). The placeholder stays soft on purpose.</p>
+                    </div>
+                    <div class="form-group">
+                        <label class="label" for="user">Username</label>
+                        <input class="input input-error" id="user" value="kaple css">
+                        <p class="form-error">No spaces allowed. On focus the red border gets thicker.</p>
+                    </div>
+                    <div class="flex flex-wrap items-center gap-6">
+                        <label class="toggle"><input type="checkbox" checked aria-label="Notifications"><span class="toggle-slider"></span></label>
+                        <label class="checkbox"><input type="checkbox"> Remember me</label>
+                        <button class="btn btn-ghost btn-sm" data-tooltip="Tooltips show on keyboard focus too">Hover or Tab me</button>
+                    </div>
+                </div>
+
+                <div class="card card-body">
+                    <p class="font-semibold mb-2">Reduced motion</p>
+                    <p class="text-sm text-secondary mb-4">
+                        With "reduce motion" on in your OS, animations finish instantly and nothing is left hidden.
+                    </p>
+                    <p class="text-sm mb-4">Your system: <span class="badge" id="motion-status">…</span></p>
+                    <div class="flex gap-3">
+                        <div class="skeleton skeleton-circle" style="width:40px;height:40px"></div>
+                        <div class="flex-1">
+                            <div class="skeleton skeleton-text" style="width:70%"></div>
+                            <div class="skeleton skeleton-text" style="width:45%"></div>
+                        </div>
+                    </div>
+                    <div class="divider my-6">.delay-* on its own no longer hides content</div>
+                    <p class="delay-3 text-sm">← this paragraph only has <code>.delay-3</code>, and it is visible.</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ═══ CONTRAST ═══ -->
+        <section class="section" id="contrast">
+            <p class="section-eyebrow">Fixed</p>
+            <h2 class="h2 mb-2">Tertiary text contrast</h2>
+            <p class="text-secondary mb-8">WCAG AA needs 4.5:1 for body text. Ratios are measured live against each sample's real background.</p>
+            <div class="grid grid-1 md:grid-2 gap-4" id="compare"></div>
+        </section>
+    </main>
+
+    <!-- ═══ FOOTER — .site-footer ═══ -->
+    <footer class="site-footer">
+        <div class="container container-xl footer-bottom">
+            <p class="footer-copy">© 2026 Kaple CSS · playground</p>
+            <p class="footer-copy">Built with <code>.site-footer</code></p>
+        </div>
+    </footer>
+
+    <template id="column">
+        <div class="card">
+            <div class="card-header">
+                <p class="font-semibold" data-title></p>
+                <p class="text-xs text-secondary" data-desc></p>
+            </div>
+            <div class="card-body flex flex-col gap-3">
+                <p class="text-sm text-secondary sample"><span>Secondary text (reference)</span></p>
+                <div>
+                    <label class="label">Email</label>
+                    <input class="input" placeholder="Placeholder: you@example.com" data-placeholder>
+                    <p class="form-hint sample"><span>Form hint: we never share it.</span></p>
+                </div>
+                <div class="divider sample"><span>divider</span></div>
+                <p class="section-eyebrow sample"><span>Section eyebrow</span></p>
+                <p class="author-role sample"><span>Author role · CTO</span></p>
+                <p class="footer-copy sample"><span>© 2026 Footer copy</span></p>
+                <div class="bg-muted rounded p-3">
+                    <p class="form-hint sample"><span>Hint on bg-muted</span></p>
+                </div>
+            </div>
+        </div>
+    </template>
+
+    <script>
+        // ── Theme cycle: system → light → dark ──────────────────────
+        const html = document.documentElement;
+        const themeBtn = document.getElementById('theme-toggle');
+        const order = ['system', 'light', 'dark'];
+        let theme = 'system';
+        function applyTheme(next) {
+            theme = next;
+            if (theme === 'system') delete html.dataset.theme; else html.dataset.theme = theme;
+            themeBtn.textContent = 'Theme: ' + theme;
+            measure();
+        }
+        themeBtn.addEventListener('click', () => applyTheme(order[(order.indexOf(theme) + 1) % order.length]));
+        matchMedia('(prefers-color-scheme: dark)').addEventListener('change', () => measure());
+
+        // ── Reduced motion status ───────────────────────────────────
+        const motion = matchMedia('(prefers-reduced-motion: reduce)');
+        const showMotion = () => {
+            const el = document.getElementById('motion-status');
+            el.textContent = motion.matches ? 'reduce' : 'no preference';
+            el.className = 'badge ' + (motion.matches ? 'badge-success' : 'badge-default');
+        };
+        motion.addEventListener('change', showMotion);
+        showMotion();
+
+        // ── Contrast comparison ─────────────────────────────────────
+        const columns = [
+            { cls: 'opt-prev', title: 'Before', desc: 'tertiary #a3a3a3 / #6b6b6b' },
+            { cls: '', title: 'Now', desc: 'tertiary #737373 / #8a8a8a · placeholder stays soft' },
+        ];
+        const tpl = document.getElementById('column');
+        const compare = document.getElementById('compare');
+        for (const col of columns) {
+            const node = tpl.content.cloneNode(true);
+            const wrap = document.createElement('div');
+            if (col.cls) wrap.className = col.cls;
+            node.querySelector('[data-title]').textContent = col.title;
+            node.querySelector('[data-desc]').textContent = col.desc;
+            wrap.appendChild(node);
+            compare.appendChild(wrap);
+        }
+
+        // WCAG 2.x relative luminance and contrast ratio.
+        const rgb = (s) => (s.match(/[\d.]+/g) || []).slice(0, 4).map(Number);
+        const lum = ([r, g, b]) => [r, g, b]
+            .map((v) => v / 255)
+            .map((v) => (v <= 0.03928 ? v / 12.92 : ((v + 0.055) / 1.055) ** 2.4))
+            .reduce((acc, v, i) => acc + v * [0.2126, 0.7152, 0.0722][i], 0);
+        const ratio = (fg, bg) => {
+            const [a, b] = [lum(fg), lum(bg)].sort((x, y) => y - x);
+            return (a + 0.05) / (b + 0.05);
+        };
+        const backgroundOf = (el) => {
+            for (let n = el; n; n = n.parentElement) {
+                const c = rgb(getComputedStyle(n).backgroundColor);
+                if (c.length === 3 || c[3] === 1) return c.slice(0, 3);
+            }
+            return [255, 255, 255];
+        };
+        const badge = (value) => {
+            const span = document.createElement('span');
+            span.className = 'ratio ' + (value >= 4.5 ? 'ok' : 'bad');
+            span.textContent = (value >= 4.5 ? '✓ ' : '✗ ') + value.toFixed(2) + ':1';
+            return span;
+        };
+        function measure() {
+            document.querySelectorAll('.ratio').forEach((n) => n.remove());
+            compare.querySelectorAll('.sample').forEach((el) => {
+                el.appendChild(badge(ratio(rgb(getComputedStyle(el).color), backgroundOf(el))));
+            });
+            compare.querySelectorAll('[data-placeholder]').forEach((input) => {
+                const fg = rgb(getComputedStyle(input, '::placeholder').color);
+                input.parentElement.querySelector('.label').appendChild(badge(ratio(fg, backgroundOf(input))));
+            });
+        }
+
+        // ?theme=light|dark forces a theme on load; ?compact shrinks the hero
+        // (handy for full-page screenshots with a tall window).
+        const params = new URLSearchParams(location.search);
+        const forced = params.get('theme');
+        if (forced === 'dark' || forced === 'light') applyTheme(forced); else measure();
+        if (params.has('compact')) document.querySelector('.hero').style.minHeight = '640px';
+    </script>
 </body>
 </html>

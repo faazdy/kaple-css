@@ -1,7 +1,10 @@
 // ============================================================
-//  LAYOUT — Grid & Flexbox utilities
-//  Sección 4 del main.css original (parte grid + flex)
+//  UTILITIES — Grid, Flexbox & Display
+//  Lives in utilities/ (not layout/) so these classes are emitted after
+//  the components and override them: class="badge hidden" hides it.
 // ============================================================
+
+@use '../abstracts' as *;
 
 // ── Grid ─────────────────────────────────────────────────────
 .grid        { display: grid; }
@@ -40,12 +43,12 @@
 .gap-12 { gap: var(--space-12); }
 
 // ── Responsive grid collapse ──────────────────────────────────
-@media (max-width: 768px) {
+// grid-2/3/4 stack to one column on small screens. Responsive
+// variants (md:grid-3, …) come later in the bundle and override this.
+@include respond-to(md) {
   .grid-2,
   .grid-3,
   .grid-4 { grid-template-columns: 1fr; }
-
-  .sm\:grid-2 { grid-template-columns: repeat(2, 1fr); }
 }
 
 // ── Flexbox ───────────────────────────────────────────────────

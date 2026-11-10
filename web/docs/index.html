@@ -35,7 +35,7 @@
       <div class="sidebar-logo">
         <img src="./kaple-logo-png.png" alt="logo">
         <span>KapleCSS</span>
-        <span class="sidebar-logo-badge">v1.0</span>
+        <span class="sidebar-logo-badge">v1.2</span>
       </div>
 
       <div class="nav-group">
@@ -60,6 +60,7 @@
         <a href="#cards" class="nav-item"><span class="nav-dot"></span>Cards</a>
         <a href="#badges" class="nav-item"><span class="nav-dot"></span>Badges & Tags</a>
         <a href="#avatar" class="nav-item"><span class="nav-dot"></span>Avatares</a>
+        <a href="#divider" class="nav-item"><span class="nav-dot"></span>Divider & Tooltip</a>
         <a href="#navbars" class="nav-item"><span class="nav-dot"></span>Navegación</a>
         <a href="#tabs" class="nav-item"><span class="nav-dot"></span>Tabs</a>
         <a href="#notices" class="nav-item"><span class="nav-dot"></span>Notices & Alerts</a>
@@ -70,10 +71,14 @@
 
       <div class="nav-group">
         <p class="nav-group-title">Landing Sections</p>
+        <a href="#section-sec" class="nav-item"><span class="nav-dot"></span>Estructura de sección</a>
         <a href="#hero" class="nav-item"><span class="nav-dot"></span>Hero</a>
+        <a href="#logos" class="nav-item"><span class="nav-dot"></span>Logos</a>
         <a href="#features" class="nav-item"><span class="nav-dot"></span>Features Grid</a>
+        <a href="#stats" class="nav-item"><span class="nav-dot"></span>Stats</a>
         <a href="#pricing-sec" class="nav-item"><span class="nav-dot"></span>Pricing</a>
         <a href="#testimonials" class="nav-item"><span class="nav-dot"></span>Testimonios</a>
+        <a href="#code-window" class="nav-item"><span class="nav-dot"></span>Code Window</a>
         <a href="#cta-sec" class="nav-item"><span class="nav-dot"></span>CTA Section</a>
         <a href="#footer-sec" class="nav-item"><span class="nav-dot"></span>Footer</a>
       </div>
@@ -82,8 +87,10 @@
         <p class="nav-group-title">Extras</p>
         <a href="#animations" class="nav-item"><span class="nav-dot"></span>Animaciones</a>
         <a href="#effects" class="nav-item"><span class="nav-dot"></span>Efectos Especiales</a>
+        <a href="#patterns" class="nav-item"><span class="nav-dot"></span>Patrones de Fondo</a>
         <a href="#utilities" class="nav-item"><span class="nav-dot"></span>Utilidades</a>
         <a href="#darkmode" class="nav-item"><span class="nav-dot"></span>Dark Mode</a>
+        <a href="#a11y" class="nav-item"><span class="nav-dot"></span>Accesibilidad</a>
       </div>
     </aside>
 
@@ -128,6 +135,18 @@
             <div class="docs-hero-stat"><strong>20+</strong>Componentes</div>
             <div class="docs-hero-stat"><strong>100%</strong>CSS Variables</div>
           </div>
+
+          <div class="notice notice-default mt-8" style="flex-direction:column;gap:var(--space-2)">
+            <p class="font-semibold text-primary">Novedades de la próxima versión (1.2)</p>
+            <ul class="text-sm flex flex-col gap-1">
+              <li>✦ <a href="#patterns" class="text-primary font-medium">Patrones de fondo</a>: puntos, cuadrícula, líneas y diagonales en CSS puro.</li>
+              <li>✦ <a href="#layout" class="text-primary font-medium">Variantes responsive</a> mobile-first: <code>md:grid-3</code>, <code>hidden md:flex</code>…</li>
+              <li>✦ <a href="#navbars" class="text-primary font-medium"><code>.site-nav</code> y <code>.site-footer</code></a>: ya no se estilan <code>&lt;nav&gt;</code> ni <code>&lt;footer&gt;</code> sin clase (opcional).</li>
+              <li>✦ <a href="#darkmode" class="text-primary font-medium">Dark mode completo</a>: glass, navbar, hero, código y gradientes siguen al sistema y a <code>data-theme</code>.</li>
+              <li>✦ <a href="#a11y" class="text-primary font-medium">Accesibilidad</a>: foco visible, contraste AA y <code>prefers-reduced-motion</code>.</li>
+              <li>✦ <a href="#install" class="text-primary font-medium">Instalación con Sass</a>: <code>@use "pkg:kaple-css"</code>.</li>
+            </ul>
+          </div>
         </div>
 
         <!-- ═══ INSTALACIÓN ═══ -->
@@ -149,8 +168,11 @@
 <span class="t"># En tu archivo principal de JS/TS</span>
 <span class="k">import</span> <span class="s">'kaple-css/dist/kaple.css'</span>;
 
-<span class="t"># Si usas Sass, en tu archivo SCSS</span>
-<span class="k">@use</span> <span class="s">"kaple-css/dist/kaple.css"</span>;
+<span class="t">// Si usas Sass (Dart Sass 1.71+, con --pkg-importer=node)</span>
+<span class="k">@use</span> <span class="s">"pkg:kaple-css"</span>;
+
+<span class="t">// Opcional: no aplicar estilos a &lt;nav&gt; y &lt;footer&gt; sin clase</span>
+<span class="k">@use</span> <span class="s">"pkg:kaple-css"</span> <span class="k">with</span> ($legacy-element-selectors: <span class="s">false</span>);
 </code></pre>
             </div>
           </div>
@@ -418,9 +440,16 @@
               </div>
             </div>
             <div class="token-swatch">
-              <div class="token-color" style="background:#a3a3a3"></div>
+              <div class="token-color" style="background:#737373"></div>
               <div class="token-info">
                 <p class="token-name">--color-text-tertiary</p>
+                <p class="token-value">#737373</p>
+              </div>
+            </div>
+            <div class="token-swatch">
+              <div class="token-color" style="background:#a3a3a3"></div>
+              <div class="token-info">
+                <p class="token-name">--color-text-placeholder</p>
                 <p class="token-value">#a3a3a3</p>
               </div>
             </div>
@@ -579,6 +608,84 @@
 <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"flex flex-col gap-4"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span></code></pre>
             </div>
           </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Variantes responsive (mobile-first)</div>
+            <div class="preview-area" style="flex-direction:column;align-items:stretch">
+              <div class="grid grid-1 sm:grid-2 lg:grid-4 gap-3 w-full">
+                <div class="card card-body text-center text-sm">1</div>
+                <div class="card card-body text-center text-sm">2</div>
+                <div class="card card-body text-center text-sm">3</div>
+                <div class="card card-body text-center text-sm">4</div>
+              </div>
+              <p class="text-xs text-secondary mt-3">Cambia el ancho de la ventana: 1 → 2 → 4 columnas.</p>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- bp:clase aplica la clase desde ese breakpoint hacia arriba --&gt;</span>
+<span class="t">&lt;!-- sm ≥ 640px · md ≥ 768px · lg ≥ 1024px · xl ≥ 1280px --&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"grid grid-1 sm:grid-2 lg:grid-4 gap-3"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;nav</span> <span class="a">class</span>=<span class="s">"hidden md:flex"</span><span class="k">&gt;</span>...<span class="k">&lt;/nav&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"flex flex-col md:flex-row gap-2 md:gap-8"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"text-center lg:text-left"</span><span class="k">&gt;</span>...<span class="k">&lt;/p&gt;</span>
+
+<span class="t">&lt;!-- Disponibles con prefijo: display (block, flex, grid, hidden…), grid-N, col-span-N,
+     flex-row/col/wrap, items-*, justify-*, gap-N, text-left/center/right --&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ ESPACIADO ═══ -->
+        <section class="doc-section" id="spacing">
+          <h2 class="section-title">Espaciado y contenedores</h2>
+          <p class="section-desc">Padding y margin siguen la escala <code>--space-*</code> (1 = 4px). El nombre es
+            <code>{propiedad}{lado}-{paso}</code>: <code>p</code>/<code>m</code> + <code>x</code>, <code>y</code>,
+            <code>t</code>, <code>b</code>, <code>l</code>, <code>r</code>.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">Escala de padding</div>
+            <div class="preview-area" style="flex-direction:column;align-items:flex-start;gap:var(--space-2)">
+              <div class="bg-muted rounded p-1"><span class="badge">p-1 · 4px</span></div>
+              <div class="bg-muted rounded p-2"><span class="badge">p-2 · 8px</span></div>
+              <div class="bg-muted rounded p-4"><span class="badge">p-4 · 16px</span></div>
+              <div class="bg-muted rounded p-6"><span class="badge">p-6 · 24px</span></div>
+              <div class="bg-muted rounded px-8 py-2"><span class="badge">px-8 py-2</span></div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- Pasos: 0 1 2 3 4 5 6 8 10 12 (p y py llegan a 16; py hasta 24) --&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"p-6"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>          <span class="t">&lt;!-- padding: 24px --&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"px-8 py-2"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>     <span class="t">&lt;!-- horizontal 32px, vertical 8px --&gt;</span>
+<span class="k">&lt;h2</span> <span class="a">class</span>=<span class="s">"mt-12 mb-4"</span><span class="k">&gt;</span>...<span class="k">&lt;/h2&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"mx-auto"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>       <span class="t">&lt;!-- centrar un bloque --&gt;</span>
+<span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn ml-auto"</span><span class="k">&gt;</span>...<span class="k">&lt;/button&gt;</span> <span class="t">&lt;!-- empujar a la derecha en flex --&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Margin en un flex: ml-auto</div>
+            <div class="preview-area">
+              <div class="flex items-center w-full border rounded-lg p-3">
+                <span class="font-semibold">Proyecto</span>
+                <span class="badge badge-dot ml-3">activo</span>
+                <button class="btn btn-secondary btn-sm ml-auto">Editar</button>
+              </div>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Container</div>
+            <div class="preview-area" style="display:block">
+              <div class="container container-sm bg-muted rounded py-3 text-center text-sm">container container-sm · máx 640px</div>
+              <div class="container container-md bg-muted rounded py-3 text-center text-sm mt-2">container container-md · máx 768px</div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- Centrado, con padding lateral que crece: 16px → 24px (≥640) → 32px (≥1024) --&gt;</span>
+<span class="k">&lt;main</span> <span class="a">class</span>=<span class="s">"container container-xl"</span><span class="k">&gt;</span>...<span class="k">&lt;/main&gt;</span>
+<span class="t">&lt;!-- Anchos: container-sm 640 · md 768 · lg 1024 · xl 1280 · 2xl 1536 --&gt;</span></code></pre>
+            </div>
+          </div>
         </section>
 
         <hr class="doc-divider">
@@ -643,6 +750,25 @@
               <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
               <pre><code><span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-primary"</span> <span class="a">disabled</span><span class="k">&gt;</span>Disabled<span class="k">&lt;/button&gt;</span>
 <span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-primary btn-block"</span><span class="k">&gt;</span>Block<span class="k">&lt;/button&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Botón de icono y ancho completo</div>
+            <div class="preview-area" style="flex-wrap:wrap;gap:var(--space-3)">
+              <button class="btn btn-secondary btn-icon btn-sm" aria-label="Editar"><svg width="14" height="14" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M11 2l3 3-8 8H3v-3z"/></svg></button>
+              <button class="btn btn-secondary btn-icon" aria-label="Buscar"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="7" cy="7" r="4.5"/><path d="M10.5 10.5L14 14"/></svg></button>
+              <button class="btn btn-primary btn-icon btn-lg" aria-label="Añadir"><svg width="18" height="18" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M8 3v10M3 8h10"/></svg></button>
+              <div style="flex-basis:100%"></div>
+              <button class="btn btn-primary btn-block">btn-block</button>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- Solo icono: añade siempre aria-label --&gt;</span>
+<span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-secondary btn-icon"</span> <span class="a">aria-label</span>=<span class="s">"Buscar"</span><span class="k">&gt;</span>
+  <span class="k">&lt;svg</span> ...<span class="k">&gt;&lt;/svg&gt;</span>
+<span class="k">&lt;/button&gt;</span>
+<span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-primary btn-block"</span><span class="k">&gt;</span>Ancho completo<span class="k">&lt;/button&gt;</span></code></pre>
             </div>
           </div>
         </section>
@@ -832,6 +958,122 @@
   <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"avatar avatar-sm"</span><span class="k">&gt;</span>A<span class="k">&lt;/div&gt;</span>
   <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"avatar avatar-sm"</span><span class="k">&gt;</span>B<span class="k">&lt;/div&gt;</span>
 <span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ DIVIDER & TOOLTIP ═══ -->
+        <section class="doc-section" id="divider">
+          <h2 class="section-title">Divider y Tooltip</h2>
+          <p class="section-desc">Separadores con texto y tooltips sin JavaScript: el texto sale del atributo
+            <code>data-tooltip</code> y aparece con hover o con foco de teclado.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">Divider</div>
+            <div class="preview-area" style="flex-direction:column;align-items:stretch;gap:var(--space-4)">
+              <button class="btn btn-secondary btn-block">Continuar con GitHub</button>
+              <div class="divider">o con tu email</div>
+              <input class="input" placeholder="tu@email.com" aria-label="Email">
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"divider"</span><span class="k">&gt;</span>o con tu email<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;hr&gt;</span>  <span class="t">&lt;!-- línea simple sin texto --&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Tooltip</div>
+            <div class="preview-area" style="gap:var(--space-4);padding-top:var(--space-12)">
+              <button class="btn btn-secondary" data-tooltip="Guardar cambios">Guardar</button>
+              <button class="btn btn-ghost btn-icon" data-tooltip="Ajustes" aria-label="Ajustes"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="2.5"/><path d="M8 1.5v2M8 12.5v2M1.5 8h2M12.5 8h2M3.4 3.4l1.4 1.4M11.2 11.2l1.4 1.4M3.4 12.6l1.4-1.4M11.2 4.8l1.4-1.4"/></svg></button>
+              <span class="badge" data-tooltip="Disponible en 1.2">nuevo</span>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-secondary"</span> <span class="a">data-tooltip</span>=<span class="s">"Guardar cambios"</span><span class="k">&gt;</span>Guardar<span class="k">&lt;/button&gt;</span>
+
+<span class="t">&lt;!-- En un elemento no enfocable, envuelve un control para que funcione con teclado --&gt;</span>
+<span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"tooltip-wrapper"</span> <span class="a">data-tooltip</span>=<span class="s">"Copiar"</span><span class="k">&gt;</span>
+  <span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-ghost btn-icon"</span> <span class="a">aria-label</span>=<span class="s">"Copiar"</span><span class="k">&gt;</span>...<span class="k">&lt;/button&gt;</span>
+<span class="k">&lt;/span&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ NAVEGACIÓN ═══ -->
+        <section class="doc-section" id="navbars">
+          <h2 class="section-title">Navegación</h2>
+          <p class="section-desc"><code>.navbar</code> es una barra sticky para apps; <code>.site-nav</code> es la barra fija
+            de una landing. Las dos usan el token <code>--color-bg-blur</code>, así que se adaptan al dark mode del sistema
+            y a <code>data-theme</code>.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">.site-nav (fija arriba en una landing)</div>
+            <div class="preview-area" style="padding:0;display:block;overflow:hidden">
+              <div class="site-nav" style="position:relative">
+                <span class="nav-logo">kaple</span>
+                <div class="nav-links">
+                  <a class="nav-link active" href="#navbars">Inicio</a>
+                  <a class="nav-link" href="#navbars">Docs</a>
+                  <a class="nav-link" href="#navbars">Precios</a>
+                </div>
+                <div class="nav-actions">
+                  <button class="btn btn-ghost btn-sm">Entrar</button>
+                  <button class="btn btn-primary btn-sm">Empezar</button>
+                </div>
+              </div>
+              <div class="bg-dots pattern-fade-b" style="height:90px"></div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;nav</span> <span class="a">class</span>=<span class="s">"site-nav"</span><span class="k">&gt;</span>
+  <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"nav-logo"</span><span class="k">&gt;</span>kaple<span class="k">&lt;/span&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"nav-links"</span><span class="k">&gt;</span>                <span class="t">&lt;!-- se oculta por debajo de 768px --&gt;</span>
+    <span class="k">&lt;a</span> <span class="a">class</span>=<span class="s">"nav-link active"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Inicio<span class="k">&lt;/a&gt;</span>
+    <span class="k">&lt;a</span> <span class="a">class</span>=<span class="s">"nav-link"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Docs<span class="k">&lt;/a&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"nav-actions"</span><span class="k">&gt;</span>
+    <span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-primary btn-sm"</span><span class="k">&gt;</span>Empezar<span class="k">&lt;/button&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/nav&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">.navbar (sticky, para apps)</div>
+            <div class="preview-area" style="padding:0;display:block;overflow:hidden">
+              <div class="navbar justify-between" style="position:relative">
+                <span class="navbar-brand">Dashboard</span>
+                <div class="navbar-nav">
+                  <a class="nav-link active" href="#navbars">Resumen</a>
+                  <a class="nav-link" href="#navbars">Equipo</a>
+                  <a class="nav-link" href="#navbars">Ajustes</a>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;header</span> <span class="a">class</span>=<span class="s">"navbar justify-between"</span><span class="k">&gt;</span>
+  <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"navbar-brand"</span><span class="k">&gt;</span>Dashboard<span class="k">&lt;/span&gt;</span>
+  <span class="k">&lt;nav</span> <span class="a">class</span>=<span class="s">"navbar-nav"</span><span class="k">&gt;</span>
+    <span class="k">&lt;a</span> <span class="a">class</span>=<span class="s">"nav-link active"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Resumen<span class="k">&lt;/a&gt;</span>
+  <span class="k">&lt;/nav&gt;</span>
+<span class="k">&lt;/header&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Migración: &lt;nav&gt; sin clase (deprecado)</div>
+            <div class="code-block" style="border-top:none">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- En 1.x, cualquier &lt;nav&gt; y &lt;footer&gt; sin clase recibe estos estilos.
+     &lt;nav&gt; se vuelve una barra fija: puede romper menús o sidebars. --&gt;</span>
+<span class="k">&lt;nav&gt;</span>...<span class="k">&lt;/nav&gt;</span>                  <span class="t">&lt;!-- antes --&gt;</span>
+<span class="k">&lt;nav</span> <span class="a">class</span>=<span class="s">"site-nav"</span><span class="k">&gt;</span>...<span class="k">&lt;/nav&gt;</span> <span class="t">&lt;!-- ahora --&gt;</span>
+
+<span class="t">// Con Sass puedes desactivar ya los selectores viejos (se eliminan en 2.0)</span>
+<span class="k">@use</span> <span class="s">"pkg:kaple-css"</span> <span class="k">with</span> ($legacy-element-selectors: <span class="s">false</span>);</code></pre>
             </div>
           </div>
         </section>
@@ -1032,6 +1274,29 @@
 <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"skeleton"</span> <span class="a">style</span>=<span class="s">"height:120px;border-radius:8px"</span><span class="k">&gt;&lt;/div&gt;</span></code></pre>
             </div>
           </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Skeleton de una tarjeta de perfil</div>
+            <div class="preview-area">
+              <div class="flex items-center gap-3 w-full" style="max-width:360px">
+                <div class="skeleton skeleton-circle" style="width:44px;height:44px"></div>
+                <div class="flex-1">
+                  <div class="skeleton skeleton-text" style="width:60%"></div>
+                  <div class="skeleton skeleton-text" style="width:90%"></div>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"flex items-center gap-3"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"skeleton skeleton-circle"</span> <span class="a">style</span>=<span class="s">"width:44px;height:44px"</span><span class="k">&gt;&lt;/div&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"flex-1"</span><span class="k">&gt;</span>
+    <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"skeleton skeleton-text"</span> <span class="a">style</span>=<span class="s">"width:60%"</span><span class="k">&gt;&lt;/div&gt;</span>
+    <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"skeleton skeleton-text"</span> <span class="a">style</span>=<span class="s">"width:90%"</span><span class="k">&gt;&lt;/div&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
         </section>
 
         <!-- ═══ MODALES ═══ -->
@@ -1080,6 +1345,392 @@
           </div>
         </section>
 
+        <!-- ═══ ESTRUCTURA DE SECCIÓN ═══ -->
+        <section class="doc-section" id="section-sec">
+          <p class="section-label">Landing Sections</p>
+          <h2 class="section-title">Estructura de sección</h2>
+          <p class="section-desc">Todas las secciones de landing comparten la misma base: <code>section</code> para el
+            espaciado vertical y <code>section-header</code> para el título centrado.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">section-header</div>
+            <div class="preview-area" style="display:block">
+              <div class="section-header" style="margin-bottom:0">
+                <p class="section-eyebrow">Características</p>
+                <h3 class="h2 mb-3">Todo lo que necesitas</h3>
+                <p class="section-sub">Componentes y utilidades listos para construir tu próxima landing.</p>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- section: 96px arriba y abajo · section-sm: 64px · section-lg: 96px --&gt;</span>
+<span class="k">&lt;section</span> <span class="a">class</span>=<span class="s">"section"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"container container-lg"</span><span class="k">&gt;</span>
+    <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"section-header"</span><span class="k">&gt;</span>
+      <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"section-eyebrow"</span><span class="k">&gt;</span>Características<span class="k">&lt;/p&gt;</span>
+      <span class="k">&lt;h2</span> <span class="a">class</span>=<span class="s">"section-title"</span><span class="k">&gt;</span>Todo lo que necesitas<span class="k">&lt;/h2&gt;</span>
+      <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"section-sub"</span><span class="k">&gt;</span>...<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;/div&gt;</span>
+    ...
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/section&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ HERO ═══ -->
+        <section class="doc-section" id="hero">
+          <h2 class="section-title">Hero</h2>
+          <p class="section-desc">Ocupa la pantalla completa (<code>min-height: 100vh</code>) y tiene un brillo sutil que
+            sigue al tema. Queda muy bien con un patrón de fondo.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">hero + bg-grid pattern-fade</div>
+            <div class="preview-area" style="display:block;padding:0;overflow:hidden">
+              <div class="hero bg-grid pattern-lg pattern-fade" style="min-height:auto;padding:var(--space-16) var(--space-6)">
+                <span class="badge badge-dot hero-eyebrow">Nuevo · v1.2</span>
+                <h1 class="hero-title">Construye más rápido</h1>
+                <p class="hero-subtitle">Un framework CSS minimalista para interfaces limpias.</p>
+                <div class="hero-actions">
+                  <button class="btn btn-primary btn-lg">Empezar</button>
+                  <button class="btn btn-outline btn-lg">Ver docs</button>
+                </div>
+                <div class="hero-meta"><span>✓ Sin JavaScript</span><span>✓ Dark mode</span><span>✓ MIT</span></div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;header</span> <span class="a">class</span>=<span class="s">"hero bg-grid pattern-lg pattern-fade"</span><span class="k">&gt;</span>
+  <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"badge badge-dot hero-eyebrow"</span><span class="k">&gt;</span>Nuevo · v1.2<span class="k">&lt;/span&gt;</span>
+  <span class="k">&lt;h1</span> <span class="a">class</span>=<span class="s">"hero-title"</span><span class="k">&gt;</span>Construye más rápido<span class="k">&lt;/h1&gt;</span>
+  <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"hero-subtitle"</span><span class="k">&gt;</span>...<span class="k">&lt;/p&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"hero-actions"</span><span class="k">&gt;</span>
+    <span class="k">&lt;a</span> <span class="a">class</span>=<span class="s">"btn btn-primary btn-lg"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Empezar<span class="k">&lt;/a&gt;</span>
+    <span class="k">&lt;a</span> <span class="a">class</span>=<span class="s">"btn btn-outline btn-lg"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Ver docs<span class="k">&lt;/a&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"hero-meta"</span><span class="k">&gt;&lt;span&gt;</span>✓ Sin JavaScript<span class="k">&lt;/span&gt;</span> ...<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/header&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ LOGOS ═══ -->
+        <section class="doc-section" id="logos">
+          <h2 class="section-title">Logos</h2>
+          <p class="section-desc">Franja de "confían en nosotros" entre bordes.</p>
+          <div class="preview-block">
+            <div class="preview-label">logos-bar</div>
+            <div class="preview-area" style="display:block;padding:0">
+              <div class="logos-bar">
+                <p>Usado por equipos en</p>
+                <div class="logos-list">
+                  <span class="logo-item">Acme</span><span class="logo-item">Globex</span><span class="logo-item">Initech</span><span class="logo-item">Umbrella</span><span class="logo-item">Hooli</span>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"logos-bar"</span><span class="k">&gt;</span>
+  <span class="k">&lt;p&gt;</span>Usado por equipos en<span class="k">&lt;/p&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"logos-list"</span><span class="k">&gt;</span>
+    <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"logo-item"</span><span class="k">&gt;</span>Acme<span class="k">&lt;/span&gt;</span>  <span class="t">&lt;!-- o un &lt;img&gt; / &lt;svg&gt; --&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ FEATURES ═══ -->
+        <section class="doc-section" id="features">
+          <h2 class="section-title">Features Grid</h2>
+          <p class="section-desc">3 columnas en desktop, 2 por debajo de 1024px y 1 por debajo de 768px.
+            Necesita <code>.grid</code> junto a <code>features-grid</code>.</p>
+          <div class="preview-block">
+            <div class="preview-label">features-grid + feature-card</div>
+            <div class="preview-area" style="display:block">
+              <div class="grid features-grid gap-4">
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M9 1L3 9h5l-1 6 6-8H8z"/></svg></div>
+                  <p class="feature-title">Rápido</p>
+                  <p class="feature-desc">Solo CSS: sin runtime ni JavaScript.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="8" cy="8" r="6"/><path d="M8 2a6 6 0 000 12z" fill="currentColor"/></svg></div>
+                  <p class="feature-title">Dark mode</p>
+                  <p class="feature-desc">Sigue al sistema o a <code>data-theme</code>.</p>
+                </div>
+                <div class="feature-card">
+                  <div class="feature-icon"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="2" y="2" width="5" height="5"/><rect x="9" y="2" width="5" height="5"/><rect x="2" y="9" width="5" height="5"/><rect x="9" y="9" width="5" height="5"/></svg></div>
+                  <p class="feature-title">Tokens</p>
+                  <p class="feature-desc">Todo se personaliza con variables CSS.</p>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"grid features-grid gap-4"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"feature-card"</span><span class="k">&gt;</span>
+    <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"feature-icon"</span><span class="k">&gt;&lt;svg</span> ...<span class="k">&gt;&lt;/svg&gt;&lt;/div&gt;</span>
+    <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"feature-title"</span><span class="k">&gt;</span>Rápido<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"feature-desc"</span><span class="k">&gt;</span>...<span class="k">&lt;/p&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ STATS ═══ -->
+        <section class="doc-section" id="stats">
+          <h2 class="section-title">Stats</h2>
+          <p class="section-desc">Franja de cifras: 4 columnas, 2 por debajo de 1024px.</p>
+          <div class="preview-block">
+            <div class="preview-label">stats-section + stats-grid</div>
+            <div class="preview-area" style="display:block;padding:0">
+              <div class="stats-section">
+                <div class="grid stats-grid">
+                  <div class="stat-item"><p class="stat-number">50kb</p><p class="stat-label">Minificado</p></div>
+                  <div class="stat-item"><p class="stat-number">0</p><p class="stat-label">Dependencias</p></div>
+                  <div class="stat-item"><p class="stat-number">20+</p><p class="stat-label">Componentes</p></div>
+                  <div class="stat-item"><p class="stat-number">AA</p><p class="stat-label">Contraste</p></div>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;section</span> <span class="a">class</span>=<span class="s">"stats-section"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"container grid stats-grid"</span><span class="k">&gt;</span>
+    <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"stat-item"</span><span class="k">&gt;</span>
+      <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"stat-number"</span><span class="k">&gt;</span>50kb<span class="k">&lt;/p&gt;</span>
+      <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"stat-label"</span><span class="k">&gt;</span>Minificado<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;/div&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/section&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ PRICING ═══ -->
+        <section class="doc-section" id="pricing-sec">
+          <h2 class="section-title">Pricing</h2>
+          <p class="section-desc">Tarjetas de precio. <code>.featured</code> destaca el plan recomendado y
+            <code>.included</code> marca las características incluidas.</p>
+          <div class="preview-block">
+            <div class="preview-label">pricing-grid + pricing-card</div>
+            <div class="preview-area" style="display:block">
+              <div class="grid pricing-grid gap-4">
+                <div class="pricing-card">
+                  <p class="pricing-name">Hobby</p>
+                  <p class="pricing-desc">Para proyectos personales.</p>
+                  <p class="pricing-price">$0</p>
+                  <p class="pricing-period">para siempre</p>
+                  <hr class="pricing-divider">
+                  <ul class="pricing-features">
+                    <li class="pricing-feature included">Todos los componentes</li>
+                    <li class="pricing-feature">Soporte prioritario</li>
+                  </ul>
+                  <button class="btn btn-secondary btn-block">Empezar</button>
+                </div>
+                <div class="pricing-card featured">
+                  <span class="pricing-badge">Popular</span>
+                  <p class="pricing-name">Pro</p>
+                  <p class="pricing-desc">Para equipos que lanzan rápido.</p>
+                  <p class="pricing-price">$19</p>
+                  <p class="pricing-period">por mes</p>
+                  <hr class="pricing-divider">
+                  <ul class="pricing-features">
+                    <li class="pricing-feature included">Todos los componentes</li>
+                    <li class="pricing-feature included">Soporte prioritario</li>
+                  </ul>
+                  <button class="btn btn-primary btn-block">Elegir Pro</button>
+                </div>
+                <div class="pricing-card">
+                  <p class="pricing-name">Equipo</p>
+                  <p class="pricing-desc">Para organizaciones.</p>
+                  <p class="pricing-price">$49</p>
+                  <p class="pricing-period">por mes</p>
+                  <hr class="pricing-divider">
+                  <ul class="pricing-features">
+                    <li class="pricing-feature included">Todo lo de Pro</li>
+                    <li class="pricing-feature included">SSO</li>
+                  </ul>
+                  <button class="btn btn-secondary btn-block">Contactar</button>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"grid pricing-grid gap-4"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"pricing-card featured"</span><span class="k">&gt;</span>
+    <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"pricing-badge"</span><span class="k">&gt;</span>Popular<span class="k">&lt;/span&gt;</span>
+    <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"pricing-name"</span><span class="k">&gt;</span>Pro<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"pricing-desc"</span><span class="k">&gt;</span>...<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"pricing-price"</span><span class="k">&gt;</span>$19<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"pricing-period"</span><span class="k">&gt;</span>por mes<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;hr</span> <span class="a">class</span>=<span class="s">"pricing-divider"</span><span class="k">&gt;</span>
+    <span class="k">&lt;ul</span> <span class="a">class</span>=<span class="s">"pricing-features"</span><span class="k">&gt;</span>
+      <span class="k">&lt;li</span> <span class="a">class</span>=<span class="s">"pricing-feature included"</span><span class="k">&gt;</span>Incluido<span class="k">&lt;/li&gt;</span>
+      <span class="k">&lt;li</span> <span class="a">class</span>=<span class="s">"pricing-feature"</span><span class="k">&gt;</span>No incluido<span class="k">&lt;/li&gt;</span>
+    <span class="k">&lt;/ul&gt;</span>
+    <span class="k">&lt;a</span> <span class="a">class</span>=<span class="s">"btn btn-primary btn-block"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Elegir Pro<span class="k">&lt;/a&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ TESTIMONIOS ═══ -->
+        <section class="doc-section" id="testimonials">
+          <h2 class="section-title">Testimonios</h2>
+          <p class="section-desc">Tarjetas de cita con autor; 3 columnas, 1 por debajo de 900px.</p>
+          <div class="preview-block">
+            <div class="preview-label">testimonials-grid + testimonial</div>
+            <div class="preview-area" style="display:block">
+              <div class="grid testimonials-grid gap-4">
+                <div class="testimonial">
+                  <p class="testimonial-text">"Armamos la landing en una tarde. El dark mode funcionó sin tocar nada."</p>
+                  <div class="testimonial-author"><div class="avatar avatar-sm">AL</div><div><p class="author-name">Ana López</p><p class="author-role">Frontend · Acme</p></div></div>
+                </div>
+                <div class="testimonial">
+                  <p class="testimonial-text">"Los patrones de fondo le dieron vida al hero sin una sola imagen."</p>
+                  <div class="testimonial-author"><div class="avatar avatar-sm">MR</div><div><p class="author-name">Mateo Ruiz</p><p class="author-role">Diseño · Globex</p></div></div>
+                </div>
+                <div class="testimonial">
+                  <p class="testimonial-text">"Por fin un framework que se ve bien con el teclado."</p>
+                  <div class="testimonial-author"><div class="avatar avatar-sm">SG</div><div><p class="author-name">Sofía Gil</p><p class="author-role">A11y · Initech</p></div></div>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"grid testimonials-grid gap-4"</span><span class="k">&gt;</span>
+  <span class="k">&lt;figure</span> <span class="a">class</span>=<span class="s">"testimonial"</span><span class="k">&gt;</span>
+    <span class="k">&lt;blockquote</span> <span class="a">class</span>=<span class="s">"testimonial-text"</span><span class="k">&gt;</span>"..."<span class="k">&lt;/blockquote&gt;</span>
+    <span class="k">&lt;figcaption</span> <span class="a">class</span>=<span class="s">"testimonial-author"</span><span class="k">&gt;</span>
+      <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"avatar avatar-sm"</span><span class="k">&gt;</span>AL<span class="k">&lt;/div&gt;</span>
+      <span class="k">&lt;div&gt;&lt;p</span> <span class="a">class</span>=<span class="s">"author-name"</span><span class="k">&gt;</span>Ana López<span class="k">&lt;/p&gt;&lt;p</span> <span class="a">class</span>=<span class="s">"author-role"</span><span class="k">&gt;</span>Frontend<span class="k">&lt;/p&gt;&lt;/div&gt;</span>
+    <span class="k">&lt;/figcaption&gt;</span>
+  <span class="k">&lt;/figure&gt;</span>
+<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ CODE WINDOW ═══ -->
+        <section class="doc-section" id="code-window">
+          <h2 class="section-title">Code Window</h2>
+          <p class="section-desc">Ventana de código decorativa con colores de sintaxis que siguen al tema
+            (<code>--color-code-tag</code>, <code>-attr</code>, <code>-string</code>).</p>
+          <div class="preview-block">
+            <div class="preview-label">code-window</div>
+            <div class="preview-area" style="display:block">
+              <div class="code-window">
+                <div class="code-titlebar"><span class="dot"></span><span class="dot"></span><span class="dot"></span></div>
+                <pre class="code-body"><code><span class="code-comment">&lt;!-- tu primer componente --&gt;</span>
+<span class="code-tag">&lt;button</span> <span class="code-attr">class</span>=<span class="code-string">"btn btn-primary"</span><span class="code-tag">&gt;</span>Empezar<span class="code-tag">&lt;/button&gt;</span></code></pre>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"code-window"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"code-titlebar"</span><span class="k">&gt;</span>
+    <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"dot"</span><span class="k">&gt;&lt;/span&gt;&lt;span</span> <span class="a">class</span>=<span class="s">"dot"</span><span class="k">&gt;&lt;/span&gt;&lt;span</span> <span class="a">class</span>=<span class="s">"dot"</span><span class="k">&gt;&lt;/span&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+  <span class="k">&lt;pre</span> <span class="a">class</span>=<span class="s">"code-body"</span><span class="k">&gt;&lt;code&gt;</span>
+<span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"code-tag"</span><span class="k">&gt;</span>&amp;lt;button<span class="k">&lt;/span&gt;</span> <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"code-attr"</span><span class="k">&gt;</span>class<span class="k">&lt;/span&gt;</span>=<span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"code-string"</span><span class="k">&gt;</span>"btn"<span class="k">&lt;/span&gt;</span>...
+  <span class="k">&lt;/code&gt;&lt;/pre&gt;</span>
+<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ CTA ═══ -->
+        <section class="doc-section" id="cta-sec">
+          <h2 class="section-title">CTA Section</h2>
+          <p class="section-desc">Cierre de landing con título grande y un formulario en línea
+            (<code>input-row</code>) que se apila en mobile.</p>
+          <div class="preview-block">
+            <div class="preview-label">cta-section + input-row</div>
+            <div class="preview-area" style="display:block;padding:0;overflow:hidden">
+              <div class="cta-section bg-dots pattern-fade" style="border-top:none;padding:var(--space-16) var(--space-6)">
+                <h2 class="cta-title">¿Listo para empezar?</h2>
+                <p class="cta-sub">Recibe las novedades de Kaple en tu correo.</p>
+                <form class="input-row" onsubmit="return false">
+                  <input class="input" type="email" placeholder="tu@email.com" aria-label="Email">
+                  <button class="btn btn-primary">Suscribirme</button>
+                </form>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;section</span> <span class="a">class</span>=<span class="s">"cta-section bg-dots pattern-fade"</span><span class="k">&gt;</span>
+  <span class="k">&lt;h2</span> <span class="a">class</span>=<span class="s">"cta-title"</span><span class="k">&gt;</span>¿Listo para empezar?<span class="k">&lt;/h2&gt;</span>
+  <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"cta-sub"</span><span class="k">&gt;</span>...<span class="k">&lt;/p&gt;</span>
+  <span class="k">&lt;form</span> <span class="a">class</span>=<span class="s">"input-row"</span><span class="k">&gt;</span>
+    <span class="k">&lt;input</span> <span class="a">class</span>=<span class="s">"input"</span> <span class="a">type</span>=<span class="s">"email"</span> <span class="a">aria-label</span>=<span class="s">"Email"</span><span class="k">&gt;</span>
+    <span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn btn-primary"</span><span class="k">&gt;</span>Suscribirme<span class="k">&lt;/button&gt;</span>
+  <span class="k">&lt;/form&gt;</span>
+<span class="k">&lt;/section&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ FOOTER ═══ -->
+        <section class="doc-section" id="footer-sec">
+          <h2 class="section-title">Footer</h2>
+          <p class="section-desc"><code>.site-footer</code> agrega el borde y el espaciado del footer de una landing.
+            Combínalo con <code>footer-grid</code>, <code>footer-links</code> y <code>footer-bottom</code>.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">.site-footer</div>
+            <div class="preview-area" style="display:block;padding:0">
+              <div class="site-footer" style="padding:var(--space-8) var(--space-6)">
+                <div class="grid footer-grid">
+                  <div>
+                    <p class="footer-brand-name">kaple</p>
+                    <p class="footer-brand-desc">Framework CSS minimalista y premium.</p>
+                  </div>
+                  <div>
+                    <p class="footer-col-title">Producto</p>
+                    <div class="footer-links"><a class="footer-link" href="#footer-sec">Docs</a><a class="footer-link" href="#footer-sec">Changelog</a></div>
+                  </div>
+                  <div>
+                    <p class="footer-col-title">Comunidad</p>
+                    <div class="footer-links"><a class="footer-link" href="#footer-sec">GitHub</a><a class="footer-link" href="#footer-sec">Discord</a></div>
+                  </div>
+                  <div>
+                    <p class="footer-col-title">Legal</p>
+                    <div class="footer-links"><a class="footer-link" href="#footer-sec">Licencia MIT</a></div>
+                  </div>
+                </div>
+                <div class="footer-bottom">
+                  <p class="footer-copy">© 2026 Kaple CSS</p>
+                  <p class="footer-copy">Hecho con .site-footer</p>
+                </div>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;footer</span> <span class="a">class</span>=<span class="s">"site-footer"</span><span class="k">&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"container grid footer-grid"</span><span class="k">&gt;</span>
+    <span class="k">&lt;div&gt;</span>
+      <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"footer-brand-name"</span><span class="k">&gt;</span>kaple<span class="k">&lt;/p&gt;</span>
+      <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"footer-brand-desc"</span><span class="k">&gt;</span>...<span class="k">&lt;/p&gt;</span>
+    <span class="k">&lt;/div&gt;</span>
+    <span class="k">&lt;div&gt;</span>
+      <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"footer-col-title"</span><span class="k">&gt;</span>Producto<span class="k">&lt;/p&gt;</span>
+      <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"footer-links"</span><span class="k">&gt;</span>
+        <span class="k">&lt;a</span> <span class="a">class</span>=<span class="s">"footer-link"</span> <span class="a">href</span>=<span class="s">"#"</span><span class="k">&gt;</span>Docs<span class="k">&lt;/a&gt;</span>
+      <span class="k">&lt;/div&gt;</span>
+    <span class="k">&lt;/div&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+  <span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"container footer-bottom"</span><span class="k">&gt;</span>
+    <span class="k">&lt;p</span> <span class="a">class</span>=<span class="s">"footer-copy"</span><span class="k">&gt;</span>© 2026 Kaple CSS<span class="k">&lt;/p&gt;</span>
+  <span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;/footer&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
         <hr class="doc-divider">
 
         <!-- ═══ ANIMACIONES ═══ -->
@@ -1087,7 +1738,19 @@
           <p class="section-label">Extras</p>
           <h2 class="section-title">Animaciones</h2>
           <p class="section-desc">Clases de animación listas para usar. Combina <code>animate</code> con
-            <code>delay-N</code> para efectos de entrada en cascada.</p>
+            <code>delay-N</code> para efectos de entrada en cascada. Si el usuario activa
+            <code>prefers-reduced-motion</code> en su sistema, las animaciones y transiciones terminan al instante
+            y los elementos se muestran en su estado final.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">fade-in, slide-up, scale-in</div>
+            <div class="preview-area" style="gap:var(--space-3);flex-wrap:wrap" id="anim-demo">
+              <div class="card card-body fade-in" style="padding:var(--space-3) var(--space-4)"><p class="text-sm font-medium">fade-in</p></div>
+              <div class="card card-body slide-up" style="padding:var(--space-3) var(--space-4)"><p class="text-sm font-medium">slide-up</p></div>
+              <div class="card card-body scale-in" style="padding:var(--space-3) var(--space-4)"><p class="text-sm font-medium">scale-in</p></div>
+              <button class="btn btn-secondary btn-sm ml-auto" onclick="document.querySelectorAll('#anim-demo .card').forEach(function (el) { var c = el.classList[2]; el.classList.remove(c); void el.offsetWidth; el.classList.add(c); })">Repetir</button>
+            </div>
+          </div>
 
           <div class="preview-block">
             <div class="preview-label">Entrada en cascada — recarga la página para ver</div>
@@ -1148,15 +1811,20 @@ document.querySelectorAll(<span class="s">'.card, .feature-card'</span>).forEach
           <h2 class="section-title">Efectos Especiales</h2>
 
           <div class="preview-block">
-            <div class="preview-label">Glass, Gradient Text, Code Window</div>
-            <div class="preview-area"
-              style="gap:var(--space-4);align-items:stretch;background:linear-gradient(135deg,#f5f5f5,#e8e8e8)">
-              <div class="glass rounded-xl p-6 relative" style="flex:1">
+            <div class="preview-label">Glass, Gradient Text, Noise, Gradient animado</div>
+            <div class="preview-area" style="padding:0">
+              <div class="gradient-animated w-full flex flex-wrap gap-4 p-8" style="align-items:stretch">
+              <div class="glass rounded-xl p-6 relative" style="flex:1;min-width:200px">
                 <h4 class="font-bold mb-1">Glassmorphism</h4>
                 <p class="text-secondary text-sm">Blur de fondo con borde semi-transparente.</p>
               </div>
               <div class="card p-6 flex items-center justify-center" style="flex:none">
                 <p class="display-2 text-gradient">Premium</p>
+              </div>
+              <div class="card relative noise p-6" style="flex:1;min-width:160px">
+                <h4 class="font-bold mb-1">Noise</h4>
+                <p class="text-secondary text-sm">Textura de grano sutil. Necesita <code>relative</code>.</p>
+              </div>
               </div>
             </div>
             <div class="code-block">
@@ -1167,8 +1835,73 @@ document.querySelectorAll(<span class="s">'.card, .feature-card'</span>).forEach
 <span class="t">&lt;!-- Gradient text --&gt;</span>
 <span class="k">&lt;h1</span> <span class="a">class</span>=<span class="s">"display-1 text-gradient"</span><span class="k">&gt;</span>Premium<span class="k">&lt;/h1&gt;</span>
 
-<span class="t">&lt;!-- Animated gradient background --&gt;</span>
-<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"gradient-animated"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span></code></pre>
+<span class="t">&lt;!-- Animated gradient background (sigue al tema) --&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"gradient-animated"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+
+<span class="t">&lt;!-- Noise texture: el padre necesita position relative --&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"card relative noise"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ BACKGROUND PATTERNS ═══ -->
+        <section class="doc-section" id="patterns">
+          <h2 class="section-title">Patrones de Fondo</h2>
+          <p class="section-desc">Fondos de puntos, cuadrícula, líneas y diagonales en CSS puro. Se combinan con
+            las utilidades de color de fondo y se difuminan hacia los bordes con <code>.pattern-fade*</code>.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">Dots, Grid, Lines, Diagonal</div>
+            <div class="preview-area" style="gap:var(--space-4);align-items:stretch;flex-wrap:wrap">
+              <div class="bg-dots rounded-lg border p-6 flex items-center justify-center" style="flex:1;min-width:140px;min-height:120px">
+                <span class="badge">bg-dots</span>
+              </div>
+              <div class="bg-grid rounded-lg border p-6 flex items-center justify-center" style="flex:1;min-width:140px;min-height:120px">
+                <span class="badge">bg-grid</span>
+              </div>
+              <div class="bg-lines rounded-lg border p-6 flex items-center justify-center" style="flex:1;min-width:140px;min-height:120px">
+                <span class="badge">bg-lines</span>
+              </div>
+              <div class="bg-diagonal pattern-sm rounded-lg border p-6 flex items-center justify-center" style="flex:1;min-width:140px;min-height:120px">
+                <span class="badge">bg-diagonal</span>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"bg-dots"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"bg-grid"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"bg-lines"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"bg-diagonal pattern-sm"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Fade, tamaño y color</div>
+            <div class="preview-area" style="gap:var(--space-4);align-items:stretch;flex-wrap:wrap">
+              <div class="bg-grid pattern-lg pattern-fade rounded-lg border p-8 flex items-center justify-center" style="flex:1;min-width:200px;min-height:160px">
+                <h4 class="font-bold">pattern-fade</h4>
+              </div>
+              <div class="bg-dots pattern-strong pattern-fade-b rounded-lg border p-8 flex items-center justify-center" style="flex:1;min-width:200px;min-height:160px">
+                <h4 class="font-bold">pattern-fade-b</h4>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- Cuadrícula grande que se difumina hacia los bordes --&gt;</span>
+<span class="k">&lt;section</span> <span class="a">class</span>=<span class="s">"bg-grid pattern-lg pattern-fade"</span><span class="k">&gt;</span>...<span class="k">&lt;/section&gt;</span>
+
+<span class="t">&lt;!-- Tamaños: pattern-sm (16px) · pattern-md (24px) · pattern-lg (40px) --&gt;</span>
+<span class="t">&lt;!-- Color: pattern-subtle · pattern-strong --&gt;</span>
+<span class="t">&lt;!-- Fade: pattern-fade · pattern-fade-t · pattern-fade-b --&gt;</span>
+
+<span class="t">&lt;!-- Personalización con variables CSS --&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"bg-dots"</span> <span class="a">style</span>=<span class="s">"--pattern-color: #6366f1; --pattern-size: 12px; --pattern-thickness: 1.5px"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+
+<span class="t">&lt;!-- El fade se funde solo con bg-base, bg-subtle, bg-muted, bg-surface y bg-accent --&gt;</span>
+<span class="k">&lt;div</span> <span class="a">class</span>=<span class="s">"bg-muted bg-grid pattern-fade"</span><span class="k">&gt;</span>...<span class="k">&lt;/div&gt;</span>
+
+<span class="t">/* Con un fondo propio, define la variable en tu hoja de estilos */</span>
+<span class="a">.my-panel</span> { <span class="a">background</span>: <span class="s">#f0f4ff</span>; <span class="a">--pattern-fade-color</span>: <span class="s">#f0f4ff</span>; }</code></pre>
             </div>
           </div>
         </section>
@@ -1178,6 +1911,32 @@ document.querySelectorAll(<span class="s">'.card, .feature-card'</span>).forEach
           <h2 class="section-title">Dark Mode</h2>
           <p class="section-desc">Soporte nativo por sistema operativo (<code>prefers-color-scheme</code>) y toggle
             manual con <code>data-theme</code>.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">data-theme en cualquier elemento</div>
+            <div class="preview-area" style="gap:var(--space-4);align-items:stretch;flex-wrap:wrap">
+              <div data-theme="light" class="bg-base text-primary border rounded-xl p-6 flex flex-col gap-3" style="flex:1;min-width:220px">
+                <span class="badge" style="align-self:flex-start">data-theme="light"</span>
+                <p class="font-semibold">Panel claro</p>
+                <p class="text-sm text-secondary">Los tokens se redefinen en este elemento y en sus hijos.</p>
+                <button class="btn btn-primary btn-sm" style="align-self:flex-start">Acción</button>
+              </div>
+              <div data-theme="dark" class="bg-base text-primary border rounded-xl p-6 flex flex-col gap-3" style="flex:1;min-width:220px">
+                <span class="badge" style="align-self:flex-start">data-theme="dark"</span>
+                <p class="font-semibold">Panel oscuro</p>
+                <p class="text-sm text-secondary">Funciona aunque el resto de la página esté en claro.</p>
+                <button class="btn btn-primary btn-sm" style="align-self:flex-start">Acción</button>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- Toda la página --&gt;</span>
+<span class="k">&lt;html</span> <span class="a">data-theme</span>=<span class="s">"dark"</span><span class="k">&gt;</span>
+
+<span class="t">&lt;!-- Solo una sección: añade bg-base y text-primary para pintar su fondo y texto --&gt;</span>
+<span class="k">&lt;section</span> <span class="a">data-theme</span>=<span class="s">"dark"</span> <span class="a">class</span>=<span class="s">"bg-base text-primary"</span><span class="k">&gt;</span>...<span class="k">&lt;/section&gt;</span></code></pre>
+            </div>
+          </div>
 
           <div class="preview-block">
             <div class="preview-label">Toggle manual con JS</div>
@@ -1202,10 +1961,105 @@ document.querySelectorAll(<span class="s">'.card, .feature-card'</span>).forEach
             <div class="preview-label">Sobrescribir tokens en dark</div>
             <div class="code-block" style="border-top:none">
               <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
-              <pre><code><span class="t">/* Personalizar colores solo en dark mode */</span>
+              <pre><code><span class="t">/* Personalizar colores solo en dark mode (sistema y toggle manual) */</span>
+<span class="k">@media</span> (prefers-color-scheme: dark) {
+  <span class="a">:root</span> { <span class="a">--color-accent</span>: <span class="s">#60a5fa</span>; <span class="a">--color-accent-hover</span>: <span class="s">#93c5fd</span>; }
+}
 <span class="a">[data-theme="dark"]</span> {
   <span class="a">--color-accent</span>:       <span class="s">#60a5fa</span>; <span class="t">/* azul en dark */</span>
   <span class="a">--color-accent-hover</span>: <span class="s">#93c5fd</span>;
+}
+<span class="t">/* Mantén light cuando se fuerza con data-theme="light" */</span>
+<span class="a">[data-theme="light"]</span> { <span class="a">--color-accent</span>: <span class="s">#000</span>; <span class="a">--color-accent-hover</span>: <span class="s">#1a1a1a</span>; }</code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Tokens que cambian con el tema</div>
+            <div class="code-block" style="border-top:none">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">/* Todos los componentes leen estos tokens: no escriben reglas de dark mode propias */</span>
+<span class="a">--color-bg</span>, <span class="a">--color-bg-subtle</span>, <span class="a">--color-bg-muted</span>, <span class="a">--color-bg-overlay</span>
+<span class="a">--color-bg-blur</span>          <span class="t">/* .navbar, .site-nav */</span>
+<span class="a">--color-bg-glass</span>, <span class="a">--color-border-glass</span>   <span class="t">/* .glass */</span>
+<span class="a">--color-surface</span>, <span class="a">--color-surface-2</span>
+<span class="a">--color-border</span>, <span class="a">--color-border-strong</span>, <span class="a">--color-border-focus</span>
+<span class="a">--color-text-*</span>, <span class="a">--color-accent*</span>
+<span class="a">--color-glow</span>             <span class="t">/* .hero */</span>
+<span class="a">--color-gradient-stops</span>   <span class="t">/* .gradient-animated */</span>
+<span class="a">--color-code-tag</span>, <span class="a">--color-code-attr</span>, <span class="a">--color-code-string</span>
+<span class="a">--color-success</span>, <span class="a">--color-success-bg</span> … <span class="a">-warning</span>, <span class="a">-danger</span>, <span class="a">-info</span>  <span class="t">/* badges, notices: tinte del 15% en dark */</span>
+<span class="a">--shadow-xs</span> … <span class="a">--shadow-xl</span></code></pre>
+            </div>
+          </div>
+        </section>
+
+        <!-- ═══ ACCESIBILIDAD ═══ -->
+        <section class="doc-section" id="a11y">
+          <h2 class="section-title">Accesibilidad</h2>
+          <p class="section-desc">Kaple cuida el foco visible, el contraste y el movimiento sin que tengas que hacer nada.
+            Pulsa <kbd>Tab</kbd> en el ejemplo para recorrer los controles.</p>
+
+          <div class="preview-block">
+            <div class="preview-label">Foco visible con teclado</div>
+            <div class="preview-area" style="flex-direction:column;align-items:stretch;gap:var(--space-4)">
+              <div class="grid grid-1 md:grid-2 gap-4">
+                <div>
+                  <label class="label" for="a11y-email">Email</label>
+                  <input class="input" id="a11y-email" type="email" placeholder="tu@email.com">
+                  <p class="form-hint">El texto de ayuda cumple WCAG AA (4.74:1).</p>
+                </div>
+                <div>
+                  <label class="label" for="a11y-user">Usuario</label>
+                  <input class="input input-error" id="a11y-user" value="kaple css">
+                  <p class="form-error">Sin espacios. Con foco, el borde rojo se engrosa.</p>
+                </div>
+              </div>
+              <div class="flex flex-wrap items-center gap-6">
+                <label class="toggle"><input type="checkbox" checked aria-label="Notificaciones"><span class="toggle-slider"></span></label>
+                <label class="checkbox"><input type="checkbox"> Recordarme</label>
+                <button class="btn btn-secondary btn-sm" data-tooltip="También aparece con Tab">Tooltip con teclado</button>
+              </div>
+            </div>
+            <div class="code-block">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">&lt;!-- Nada extra que añadir: el foco ya es visible --&gt;</span>
+<span class="k">&lt;input</span> <span class="a">class</span>=<span class="s">"input input-error"</span><span class="k">&gt;</span>          <span class="t">&lt;!-- borde de 2px al enfocar --&gt;</span>
+<span class="k">&lt;label</span> <span class="a">class</span>=<span class="s">"toggle"</span><span class="k">&gt;</span>                          <span class="t">&lt;!-- anillo en el slider con :focus-visible --&gt;</span>
+  <span class="k">&lt;input</span> <span class="a">type</span>=<span class="s">"checkbox"</span> <span class="a">aria-label</span>=<span class="s">"Notificaciones"</span><span class="k">&gt;</span>
+  <span class="k">&lt;span</span> <span class="a">class</span>=<span class="s">"toggle-slider"</span><span class="k">&gt;&lt;/span&gt;</span>
+<span class="k">&lt;/label&gt;</span>
+<span class="k">&lt;button</span> <span class="a">class</span>=<span class="s">"btn"</span> <span class="a">data-tooltip</span>=<span class="s">"Ayuda"</span><span class="k">&gt;</span>?<span class="k">&lt;/button&gt;</span> <span class="t">&lt;!-- hover y foco --&gt;</span></code></pre>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Lo que Kaple hace por ti</div>
+            <div style="overflow-x:auto">
+              <table class="prop-table">
+                <thead><tr><th>Caso</th><th>Comportamiento</th></tr></thead>
+                <tbody>
+                  <tr><td><strong>Foco</strong></td><td>Botones, inputs, <code>.input-error</code>, <code>.toggle</code> y tooltips muestran el foco, también en el modo de alto contraste de Windows (<code>forced-colors</code>).</td></tr>
+                  <tr><td><strong>Contraste</strong></td><td><code>--color-text-primary</code>, <code>-secondary</code> y <code>-tertiary</code> superan 4.5:1 sobre <code>--color-bg</code> en ambos temas. El placeholder usa <code>--color-text-placeholder</code>, más suave a propósito: acompaña siempre los inputs con un <code>.label</code> visible.</td></tr>
+                  <tr><td><strong>Movimiento</strong></td><td>Con <code>prefers-reduced-motion: reduce</code>, animaciones y transiciones terminan al instante en su estado final y el scroll deja de ser suave.</td></tr>
+                  <tr><td><strong>Animaciones</strong></td><td><code>.delay-N</code> solo retrasa: usado sin <code>.animate</code> ya no deja el elemento invisible.</td></tr>
+                </tbody>
+              </table>
+            </div>
+          </div>
+
+          <div class="preview-block">
+            <div class="preview-label">Prueba el movimiento reducido</div>
+            <div class="code-block" style="border-top:none">
+              <button class="copy-btn" onclick="copyCode(this)">Copiar</button>
+              <pre><code><span class="t">/* Chrome DevTools → ⋮ → More tools → Rendering →
+   "Emulate CSS media feature prefers-reduced-motion: reduce" */</span>
+<span class="k">@media</span> (prefers-reduced-motion: reduce) {
+  <span class="a">*</span>, <span class="a">*::before</span>, <span class="a">*::after</span> {
+    <span class="a">animation-duration</span>: <span class="s">0.01ms</span> !important;
+    <span class="a">animation-iteration-count</span>: <span class="s">1</span> !important;
+    <span class="a">transition-duration</span>: <span class="s">0.01ms</span> !important;
+  }
 }</code></pre>
             </div>
           </div>
@@ -1214,7 +2068,9 @@ document.querySelectorAll(<span class="s">'.card, .feature-card'</span>).forEach
         <!-- ═══ UTILITIES ═══ -->
         <section class="doc-section" id="utilities">
           <h2 class="section-title">Utilidades</h2>
-          <p class="section-desc">Referencia rápida de todas las clases de utilidad disponibles.</p>
+          <p class="section-desc">Referencia rápida de todas las clases de utilidad disponibles. Las utilidades se
+            cargan después de los componentes, así que siempre ganan: <code>class="badge hidden md:inline-flex"</code>
+            oculta el badge en mobile.</p>
 
           <div style="overflow-x:auto">
             <table class="prop-table">
@@ -1268,6 +2124,14 @@ document.querySelectorAll(<span class="s">'.card, .feature-card'</span>).forEach
                 <tr>
                   <td><strong>Transform</strong></td>
                   <td><code>scale-95</code> <code>scale-100</code> <code>scale-105</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Responsive</strong> <span class="badge">nuevo</span></td>
+                  <td><code>sm:</code> <code>md:</code> <code>lg:</code> <code>xl:</code> + display, <code>grid-N</code>, <code>col-span-*</code>, <code>flex-row/col/wrap</code>, <code>items-*</code>, <code>justify-*</code>, <code>gap-N</code>, <code>text-left/center/right</code></td>
+                </tr>
+                <tr>
+                  <td><strong>Patrones</strong> <span class="badge">nuevo</span></td>
+                  <td><code>bg-dots</code> <code>bg-grid</code> <code>bg-lines</code> <code>bg-diagonal</code> <code>pattern-sm/md/lg</code> <code>pattern-subtle/strong</code> <code>pattern-fade(-t/-b)</code></td>
                 </tr>
                 <tr>
                   <td><strong>Responsive hide</strong></td>

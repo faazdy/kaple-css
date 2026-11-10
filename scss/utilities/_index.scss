@@ -2,6 +2,9 @@
 //  UTILITIES — Index
 // ============================================================
 
+@forward 'layout';
 @forward 'spacing';
 @forward 'backgrounds';
+@forward 'patterns';
 @forward 'misc';
+@forward 'responsive'; // keep last: variants override the base utilities

@@ -87,7 +87,7 @@
 
 .btn-danger {
   background-color: var(--color-danger);
-  color: #fff;
+  color: var(--color-text-inverse); // white on light red, near-black on the lighter dark-mode red
   border-color: var(--color-danger);
 
   &:hover { opacity: 0.88; }

@@ -1,0 +1,3 @@
+// Package entry for `@use "kaple-css"` when node_modules is a Sass load path.
+// Prefer `@use "pkg:kaple-css"` with Sass's Node package importer.
+@forward "scss/kaple";

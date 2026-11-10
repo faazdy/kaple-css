@@ -37,12 +37,6 @@
 
 // Syntax highlight tokens
 .code-comment { color: var(--color-text-tertiary); }
-.code-tag     { color: #7c6af7; }
-.code-attr    { color: #2b8a6a; }
-.code-string  { color: #b56b4a; }
-
-[data-theme="dark"] {
-  .code-tag    { color: #a5a0ff; }
-  .code-attr   { color: #5ccba4; }
-  .code-string { color: #f09060; }
-}
+.code-tag     { color: var(--color-code-tag); }
+.code-attr    { color: var(--color-code-attr); }
+.code-string  { color: var(--color-code-string); }

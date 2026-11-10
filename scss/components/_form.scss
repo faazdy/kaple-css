@@ -31,12 +31,15 @@
   -webkit-appearance: none;
   line-height: 1.5;
 
-  &::placeholder { color: var(--color-text-tertiary); }
+  &::placeholder { color: var(--color-text-placeholder); }
 
   &:hover { border-color: var(--color-border-focus); }
 
   &:focus {
-    outline: none;
+    // Transparent (not none): forced-colors mode drops box-shadow and
+    // paints this outline, so keyboard focus stays visible there.
+    outline: 2px solid transparent;
+    outline-offset: 2px;
     border-color: var(--color-accent);
     box-shadow: 0 0 0 3px var(--color-accent-subtle);
   }
@@ -48,11 +51,15 @@
   }
 }
 
-// Error state
+// Error state — declared after the base rules with matching
+// specificity, so it wins without !important.
 .input-error {
-  border-color: var(--color-danger) !important;
+  &,
+  &:hover,
+  &:focus { border-color: var(--color-danger); }
 
-  &:focus { box-shadow: 0 0 0 3px rgba(220, 38, 38, 0.12) !important; }
+  // The border is already red, so focus thickens it to 2px.
+  &:focus { box-shadow: 0 0 0 1px var(--color-danger), 0 0 0 4px rgba(220, 38, 38, 0.12); }
 }
 
 // Textarea specifics
@@ -125,6 +132,12 @@
         transform: translateX(16px);
         background-color: var(--color-text-inverse);
       }
+    }
+
+    // The real input is hidden, so the slider shows keyboard focus.
+    &:focus-visible + .toggle-slider {
+      outline: 2px solid var(--color-border-focus);
+      outline-offset: 2px;
     }
   }
 }

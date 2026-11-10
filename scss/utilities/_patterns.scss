@@ -1,0 +1,85 @@
+// ============================================================
+//  UTILITIES — Background patterns
+//  Pure-CSS dotted, grid, ruled and diagonal backgrounds.
+//
+//  Patterns only set background-image/size/repeat, so they combine
+//  with background-color utilities: class="bg-muted bg-grid".
+//
+//  Tune them with custom properties, on the element or any ancestor:
+//    --pattern-color      line/dot color   (default: --color-border-strong)
+//    --pattern-size       cell size        (default: 24px)
+//    --pattern-thickness  line width / dot radius (default: 1px)
+//    --pattern-fade-color color the fade blends into (default: --color-bg)
+// ============================================================
+
+$_color:     var(--pattern-color, var(--color-border-strong));
+$_size:      var(--pattern-size, 24px);
+$_thickness: var(--pattern-thickness, 1px);
+// Optional top layer painted by the .pattern-fade* modifiers.
+$_fade:      var(--pattern-fade, none);
+
+// ── Patterns ─────────────────────────────────────────────────
+.bg-dots {
+  background-image:
+    $_fade,
+    radial-gradient(circle, $_color $_thickness, transparent calc(#{$_thickness} + 0.5px));
+  background-size: 100% 100%, $_size $_size;
+  background-repeat: no-repeat, repeat;
+}
+
+.bg-grid {
+  background-image:
+    $_fade,
+    linear-gradient(to right, $_color $_thickness, transparent $_thickness),
+    linear-gradient(to bottom, $_color $_thickness, transparent $_thickness);
+  background-size: 100% 100%, $_size $_size, $_size $_size;
+  background-repeat: no-repeat, repeat, repeat;
+}
+
+.bg-lines {
+  background-image:
+    $_fade,
+    linear-gradient(to bottom, $_color $_thickness, transparent $_thickness);
+  background-size: 100% 100%, 100% $_size;
+  background-repeat: no-repeat, repeat;
+}
+
+.bg-diagonal {
+  background-image:
+    $_fade,
+    repeating-linear-gradient(-45deg, $_color 0 $_thickness, transparent $_thickness $_size);
+  background-size: 100% 100%, 100% 100%;
+  background-repeat: no-repeat, no-repeat;
+}
+
+// ── Size modifiers ───────────────────────────────────────────
+.pattern-sm { --pattern-size: 16px; }
+.pattern-md { --pattern-size: 24px; }
+.pattern-lg { --pattern-size: 40px; }
+
+// ── Color modifiers ──────────────────────────────────────────
+.pattern-subtle { --pattern-color: var(--color-border); }
+.pattern-strong { --pattern-color: var(--color-text-tertiary); }
+
+// ── Fade modifiers (blend the pattern into the background) ───
+$_fade-color: var(--pattern-fade-color, var(--color-bg));
+
+.pattern-fade   { --pattern-fade: radial-gradient(ellipse at center, transparent 20%, #{$_fade-color} 75%); }
+.pattern-fade-t { --pattern-fade: linear-gradient(to top, transparent 40%, #{$_fade-color}); }
+.pattern-fade-b { --pattern-fade: linear-gradient(to bottom, transparent 40%, #{$_fade-color}); }
+
+// ── Fade color follows the background utility ───────────────
+// class="bg-muted bg-grid pattern-fade" fades into --color-bg-muted with
+// no extra setup. Inherited, so children sitting on that background
+// fade correctly too. .bg-overlay is translucent, so it is left out.
+$_fade-backgrounds: (
+  'bg-base':    --color-bg,
+  'bg-subtle':  --color-bg-subtle,
+  'bg-muted':   --color-bg-muted,
+  'bg-surface': --color-surface,
+  'bg-accent':  --color-accent,
+);
+
+@each $class, $token in $_fade-backgrounds {
+  .#{$class} { --pattern-fade-color: var(#{$token}); }
+}

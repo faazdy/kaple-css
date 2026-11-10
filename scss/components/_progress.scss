@@ -23,11 +23,7 @@
 .progress-lg { height: 8px; }
 
 // ── Skeleton loader ───────────────────────────────────────────
-@keyframes skeleton-shimmer {
-  0%   { background-position: -400px 0; }
-  100% { background-position:  400px 0; }
-}
-
+// Uses @keyframes skeleton-shimmer from animations/_keyframes.scss.
 .skeleton {
   background: linear-gradient(
     90deg,

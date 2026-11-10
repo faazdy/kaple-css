@@ -1,17 +1,21 @@
 // ============================================================
 //  ANIMATIONS — Classes
 //  Sección 33 del main.css original
+//
+//  fill-mode "both" applies the first keyframe during the delay,
+//  so .delay-* only shifts the start and never hides an element
+//  that has no animation class.
 // ============================================================
 
-.animate { animation: fade-up 0.6s ease forwards; }
-.delay-1 { animation-delay: 0.1s; opacity: 0; }
-.delay-2 { animation-delay: 0.2s; opacity: 0; }
-.delay-3 { animation-delay: 0.3s; opacity: 0; }
-.delay-4 { animation-delay: 0.4s; opacity: 0; }
-.delay-5 { animation-delay: 0.5s; opacity: 0; }
+.animate { animation: fade-up 0.6s ease both; }
+.delay-1 { animation-delay: 0.1s; }
+.delay-2 { animation-delay: 0.2s; }
+.delay-3 { animation-delay: 0.3s; }
+.delay-4 { animation-delay: 0.4s; }
+.delay-5 { animation-delay: 0.5s; }
 
-.fade-in { animation: fade-in 0.4s ease forwards; }
+.fade-in { animation: fade-in 0.4s ease both; }
 
-.slide-up { animation: slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) forwards; }
+.slide-up { animation: slide-up 0.5s cubic-bezier(0.22, 1, 0.36, 1) both; }
 
-.scale-in { animation: scale-in 0.3s ease forwards; }
+.scale-in { animation: scale-in 0.3s ease both; }

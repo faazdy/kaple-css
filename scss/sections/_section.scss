@@ -3,6 +3,8 @@
 //  Sección 23 del main.css original
 // ============================================================
 
+@use '../abstracts' as *;
+
 .section    { padding: var(--space-24) 0; }
 .section-sm { padding: var(--space-16) 0; }
 .section-lg { padding: var(--space-24) 0; }
@@ -38,6 +40,6 @@
 }
 
 // Responsive
-@media (max-width: 640px) {
+@include respond-to(sm) {
   .section-title { font-size: var(--text-3xl); }
 }

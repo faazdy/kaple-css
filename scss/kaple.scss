@@ -3,6 +3,9 @@
 //  Modular Architecture (7-1 Pattern)
 // ============================================================
 
+// 0. Public options (configurable with `@use ... with (...)`)
+@forward "config";
+
 // 1. Base styles (Tokens, Reset, Typography)
 @use "base";
 

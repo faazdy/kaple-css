@@ -1,0 +1,10 @@
+// ============================================================
+//  CONFIG — Public Sass options
+//  Override them when loading the framework:
+//    @use "pkg:kaple-css" with ($legacy-element-selectors: false);
+// ============================================================
+
+// Styles bare <nav> and <footer> elements like .site-nav / .site-footer.
+// Deprecated: kept on by default for 1.x compatibility, removed in 2.0.
+// Set it to false so Kaple only styles elements that opt in with a class.
+$legacy-element-selectors: true !default;

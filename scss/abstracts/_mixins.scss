@@ -2,35 +2,42 @@
 //  ABSTRACTS — Mixins
 // ============================================================
 
+@use 'sass:map';
 @use 'variables' as *;
 
-// Respond-to: media query helper
-// Uso: @include respond-to(md) { ... }
-@mixin respond-to($breakpoint) {
-  @if $breakpoint == sm {
-    @media (max-width: #{$bp-sm})  { @content; }
-  } @else if $breakpoint == md {
-    @media (max-width: #{$bp-md})  { @content; }
-  } @else if $breakpoint == lg {
-    @media (max-width: #{$bp-lg})  { @content; }
-  } @else if $breakpoint == xl {
-    @media (max-width: #{$bp-xl})  { @content; }
-  } @else if $breakpoint == 2xl {
-    @media (max-width: #{$bp-2xl}) { @content; }
+@function breakpoint($name) {
+  @if not map.has-key($breakpoints, $name) {
+    @error "Unknown breakpoint `#{$name}`. Expected one of: #{map.keys($breakpoints)}.";
   }
+  @return map.get($breakpoints, $name);
 }
 
-// Respond-from: min-width helper
+// Respond-to: max-width media query (this size and below)
+// Uso: @include respond-to(md) { ... }
+@mixin respond-to($name) {
+  @media (max-width: #{breakpoint($name)}) { @content; }
+}
+
+// Respond-from: min-width media query (this size and above)
 // Uso: @include respond-from(md) { ... }
-@mixin respond-from($breakpoint) {
-  @if $breakpoint == sm {
-    @media (min-width: #{$bp-sm})  { @content; }
-  } @else if $breakpoint == md {
-    @media (min-width: #{$bp-md})  { @content; }
-  } @else if $breakpoint == lg {
-    @media (min-width: #{$bp-lg})  { @content; }
-  } @else if $breakpoint == xl {
-    @media (min-width: #{$bp-xl})  { @content; }
+@mixin respond-from($name) {
+  @media (min-width: #{breakpoint($name)}) { @content; }
+}
+
+// Spacing utilities: one class per step, setting every property to the
+// matching value from $spacing.
+// Uso: @include spacing-utilities('px', (padding-left, padding-right), (0, 1, 2));
+//   → .px-0 { padding-left: 0; padding-right: 0; } ...
+@mixin spacing-utilities($prefix, $properties, $steps) {
+  @each $step in $steps {
+    @if not map.has-key($spacing, $step) {
+      @error "Unknown spacing step `#{$step}` for .#{$prefix}-*.";
+    }
+    .#{$prefix}-#{$step} {
+      @each $property in $properties {
+        #{$property}: map.get($spacing, $step);
+      }
+    }
   }
 }
 

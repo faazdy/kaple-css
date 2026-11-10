@@ -3,6 +3,8 @@
 //  Sección 4 del main.css original (parte container)
 // ============================================================
 
+@use '../abstracts' as *;
+
 .container {
   width: 100%;
   margin-left: auto;
@@ -17,14 +19,14 @@
 .container-xl  { max-width: var(--container-xl); }
 .container-2xl { max-width: var(--container-2xl); }
 
-@media (min-width: 640px) {
+@include respond-from(sm) {
   .container {
     padding-left: var(--space-6);
     padding-right: var(--space-6);
   }
 }
 
-@media (min-width: 1024px) {
+@include respond-from(lg) {
   .container {
     padding-left: var(--space-8);
     padding-right: var(--space-8);

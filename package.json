@@ -1,11 +1,34 @@
 {
   "name": "kaple-css",
   "version": "1.1.0",
-  "main": "index.js",
+  "main": "dist/kaple.css",
+  "style": "dist/kaple.css",
+  "sass": "scss/kaple.scss",
+  "unpkg": "dist/kaple.min.css",
+  "jsdelivr": "dist/kaple.min.css",
+  "exports": {
+    ".": {
+      "sass": "./scss/kaple.scss",
+      "style": "./dist/kaple.css",
+      "default": "./dist/kaple.css"
+    },
+    "./dist/*": "./dist/*",
+    "./scss/*": "./scss/*",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "dist/",
+    "scss/",
+    "!scss/legacy/",
+    "_index.scss"
+  ],
   "scripts": {
-    "build": "sass scss/kaple.scss dist/kaple.css --style=expanded --no-source-map",
+    "build": "npm run build:css && npm run build:min",
+    "build:css": "sass scss/kaple.scss dist/kaple.css --style=expanded --no-source-map",
+    "build:min": "sass scss/kaple.scss dist/kaple.min.css --style=compressed --no-source-map",
     "watch": "sass scss/kaple.scss dist/kaple.css --watch --style=expanded --no-source-map",
-    "build:min": "sass scss/kaple.scss dist/kaple.min.css --style=compressed --no-source-map"
+    "test": "node --test \"test/**/*.test.mjs\"",
+    "prepublishOnly": "npm run build && npm test"
   },
   "keywords": ["css", "framework", "modern", "minimal"],
   "author": "faazdy",
