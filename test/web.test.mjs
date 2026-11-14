@@ -92,3 +92,26 @@ test('landing link colors are not overridden by the ".lp a { color: inherit }" r
   const overridden = [...new Set(linkClasses.filter((name) => weakColorClasses.has(name)))];
   assert.deepEqual(overridden, [], `prefix these selectors with ".lp ": ${overridden.join(', ')}`);
 });
+
+const cssFiles = (dir) =>
+  readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
+    const full = path.join(dir, entry.name);
+    if (entry.isDirectory()) return skipped.has(entry.name) ? [] : cssFiles(full);
+    return entry.name.endsWith('.css') ? [full] : [];
+  });
+
+for (const file of cssFiles(web)) {
+  const sheet = path.relative(web, file).split(path.sep).join('/');
+  test(`${sheet}: @import and url() references stay inside web/ and exist`, () => {
+    const css = readFileSync(file, 'utf8');
+    const refs = [...css.matchAll(/@import\s+(?:url\()?\s*['"]?([^'")\s;]+)|url\(\s*['"]?([^'")]+)/g)]
+      .map((m) => m[1] ?? m[2])
+      .filter((ref) => !/^(?:[a-z]+:|\/\/|#)/i.test(ref));
+
+    for (const ref of refs) {
+      const target = path.resolve(path.dirname(file), ref.split(/[?#]/)[0]);
+      assert.ok(!path.relative(web, target).startsWith('..'), `${sheet}: "${ref}" points outside web/`);
+      assert.ok(existsSync(sourceOf(target)), `${sheet}: "${ref}" does not exist`);
+    }
+  });
+}
