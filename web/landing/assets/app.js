@@ -81,3 +81,7 @@ if (tablist) {
     tabs[next].focus();
   });
 }
+
+const yearTag = document.querySelector('#current-year')
+let currentYear = new Date().getFullYear()
+yearTag.innerText = currentYear
