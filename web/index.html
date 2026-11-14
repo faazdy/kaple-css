@@ -1,249 +1,458 @@
 <!DOCTYPE html>
-<html lang="en" data-theme="light">
+<html lang="en">
 
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>KapleCSS — Minimal Premium CSS Framework</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>KapleCSS — Minimal CSS for premium websites</title>
+  <meta name="description" content="A design-first CSS framework built on tokens. No build steps, no dependencies — link one file and ship beautiful, consistent UIs.">
+  <meta name="theme-color" content="#FFFFFF" media="(prefers-color-scheme: light)">
+  <meta name="theme-color" content="#000000" media="(prefers-color-scheme: dark)">
+  <link rel="icon" type="image/png" href="./landing/assets/imgs/kaple-logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link
-    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:ital,wght@0,400;0,600;1,400;1,600&family=Fira+Code:wght@400;500&display=swap"
-    rel="stylesheet">
-  <link rel="stylesheet" href="../../dist/kaple.css">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="./dist/kaple.css">
   <link rel="stylesheet" href="./landing/assets/styles/style.css">
 </head>
 
-<body>
+<body class="lp">
+  <p class="lp-sr-only" role="status" aria-live="polite" data-copy-status></p>
 
   <!-- ── NAV ── -->
-  <header>
-    <nav class="mt-3">
-      <div class="logo">
-        <a href="#" class="logo">
-          <img src="./landing/assets/imgs/kaple-logo.png" alt="KapleCSS Logo">
-          <span>KapleCSS</span>
-        </a>
-      </div>
-      <div class="nav-tags">
-        <a href="#features">Features</a>
-        <a href="#install">Install</a>
-        <a href="#contributing">Contributing</a>
-        <a href="./docs/index.html" class="btn btn-primary">Docs →</a>
-      </div>
-      <button class="burger">MENU</button>
-    </nav>
-    <aside class="mobile-menu">
-      <div class="menu-container">
-        <div class="mobile-menu-header">
-          <a href="#" class="logo">
-            <img src="./landing/assets/imgs/kaple-logo.png" alt="KapleCSS Logo">
-            <span>KapleCSS</span>
-          </a>
-          <button class="btn btn-secondary burger">X</button>
-        </div>
-        <hr>
-        <ul class="mobile-menu-tags">
-          <li><a href="#features">Features</a></li>
-          <li><a href="#install">Install</a></li>
-          <li><a href="#contributing">Contributing</a></li>
-          <li><a href="./docs/index.html" class="btn btn-primary btn-lg">Docs →</a></li>
-        </ul>
-        <div class="mobile-menu-footer">
-          <a href="https://github.com/kaple-css/kaple-css" target="_blank" class="btn btn-primary">GitHub</a>
-        </div>
-      </div>
-    </aside>
-  </header>
+  <div class="lp-nav-wrap">
+    <header class="lp-header">
+      <a href="#top" class="lp-pill lp-brand" aria-label="KapleCSS home">
+        <img src="./landing/assets/imgs/kaple-logo.png" alt="">
+        <span>KapleCSS</span>
+      </a>
+      <nav class="lp-pill lp-nav" aria-label="Main">
+        <a href="./docs/index.html" class="lp-navlink">Docs</a>
+        <a href="#templates" class="lp-navlink">Templates</a>
+        <a href="#github" class="lp-navlink">GitHub</a>
+        <a href="#install" class="lp-nav-cta">Get Started</a>
+      </nav>
+    </header>
+  </div>
 
   <main>
 
     <!-- ── HERO ── -->
-    <section class="hero">
-      <div class="status-pill">
-        <span class="status-dot"></span>
-        Beta
+    <section id="top" class="lp-hero">
+      <div class="lp-photo-card">
+        <img src="./landing/assets/imgs/hero.jpg" alt="" class="lp-photo-card__img">
+        <div class="lp-photo-card__scrim" aria-hidden="true"></div>
+
+        <div class="lp-photo-card__body">
+          <div class="lp-hero__intro">
+            <p class="lp-hero__eyebrow">
+              <span>KapleCSS</span>
+              <span class="lp-badge">Beta</span>
+            </p>
+            <h1 class="lp-hero__title">Minimal CSS.<br><span class="lp-dim-white">Premium websites.</span></h1>
+            <p class="lp-hero__lead">A design-first CSS framework built on tokens. No build steps, no dependencies — link one file and ship beautiful, consistent UIs.</p>
+            <div class="lp-actions">
+              <a href="#install" class="lp-btn lp-btn--white">Get Started</a>
+              <a href="./docs/index.html" class="lp-link lp-link--white">View the docs
+                <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </a>
+            </div>
+          </div>
+
+          <div class="lp-hero__foot">
+            <ul class="lp-checks">
+              <li>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="7" height="7" rx="2"></rect><rect x="14" y="3" width="7" height="7" rx="2"></rect><rect x="3" y="14" width="7" height="7" rx="2"></rect><rect x="14" y="14" width="7" height="7" rx="2"></rect></svg>
+                Built on design tokens
+              </li>
+              <li>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 3 14h9l-1 8 10-12h-9z"></path></svg>
+                No build steps
+              </li>
+              <li>
+                <svg aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round"><path d="M10 13a5 5 0 0 0 7.54.54l3-3a5 5 0 0 0-7.07-7.07l-1.72 1.71"></path><path d="M14 11a5 5 0 0 0-7.54-.54l-3 3a5 5 0 0 0 7.07 7.07l1.71-1.71"></path></svg>
+                Zero dependencies
+              </li>
+            </ul>
+
+            <div class="lp-install-card">
+              <span class="lp-install-card__label">Install</span>
+              <div class="lp-install-card__cmd">
+                <span><span class="lp-prompt">$ </span>npm install kaple-css</span>
+                <button type="button" class="lp-icon-btn" data-copy="npm install kaple-css" aria-label="Copy install command">
+                  <svg class="lp-icon-copy" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="8" y="8" width="13" height="13" rx="3"></rect><path d="M16 8V6a3 3 0 0 0-3-3H6a3 3 0 0 0-3 3v7a3 3 0 0 0 3 3h2"></path></svg>
+                  <svg class="lp-icon-check" aria-hidden="true" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"></path></svg>
+                </button>
+              </div>
+              <div class="lp-install-card__meta">
+                <img src="./landing/assets/imgs/kaple-logo.png" alt="">
+                <span>~54kb · MIT licensed · one file</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <div class="hero-icon">
-        <img src="./landing/assets/imgs/kaple-logo.png" alt="KapleCSS Logo">
+    <!-- ── KPIs ── -->
+    <section class="lp-kpis" aria-labelledby="kpi-title">
+      <div class="lp-kpis__card">
+        <img src="./landing/assets/imgs/kpi.jpg" alt="" class="lp-photo-card__img">
+        <div class="lp-photo-card__body">
+          <div class="lp-kpis__intro">
+            <span class="lp-badge">Lightweight by design</span>
+            <h2 id="kpi-title" class="lp-display lp-display--tight">Small by design.<br><span>Zero setup.</span></h2>
+            <p>One stylesheet carries every token, component and utility class. Drop it into any project and start building.</p>
+          </div>
+
+          <div class="lp-kpis__grid">
+            <div class="lp-kpis__col">
+              <div class="lp-kpi lp-kpi--tall">
+                <span class="lp-kpi__label">File size</span>
+                <span class="lp-kpi__note">
+                  <span class="lp-kpi__value">54<span class="lp-kpi__unit">kb</span></span>
+                  <span>The full framework, minified, in one file.</span>
+                </span>
+              </div>
+            </div>
+            <div class="lp-kpis__col">
+              <div class="lp-kpi lp-kpi--short">
+                <span class="lp-kpi__value">0</span>
+                <span class="lp-kpi__label">Dependencies</span>
+              </div>
+              <div class="lp-kpi">
+                <span class="lp-kpi__value">1</span>
+                <span class="lp-kpi__label">File to link</span>
+              </div>
+            </div>
+            <div class="lp-kpis__col">
+              <div class="lp-kpi">
+                <span class="lp-kpi__value">0</span>
+                <span class="lp-kpi__label">Build steps</span>
+              </div>
+              <div class="lp-kpi lp-kpi--short">
+                <span class="lp-kpi__value">MIT</span>
+                <span class="lp-kpi__label">Open source license</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
+    </section>
 
-      <h1 class="display-1">
-        Minimal CSS for<br>
-        <em>Premium Websites</em>
-      </h1>
+    <!-- ── HIGHLIGHTS ── -->
+    <section id="features" class="lp-section lp-section--alt">
+      <div class="lp-container">
+        <div class="lp-heading">
+          <h2 class="lp-display">One source of truth.<br><span class="lp-dim">Built on tokens.</span></h2>
+          <p class="lp-lead">KapleCSS helps developers create beautiful, consistent websites with ease. Colors, typography and spacing live in design tokens — a single source of truth that keeps every project cohesive from day one.</p>
+        </div>
 
-      <p>
-        A design-first CSS framework built on tokens. No build steps,
-        no dependencies — link one file and ship beautiful, consistent UIs.
-      </p>
+        <div class="lp-bento">
+          <div class="lp-bento__row">
+            <article class="lp-tile">
+              <div class="lp-tile__art" aria-hidden="true">
+                <div class="lp-swatches">
+                  <span style="background: var(--lp-accent)"></span>
+                  <span style="background: #1D1D1F"></span>
+                  <span style="background: #6E6E73"></span>
+                  <span style="background: #D2D2D7"></span>
+                  <span style="background: #F5F5F7"></span>
+                </div>
+              </div>
+              <div class="lp-tile__text">
+                <h3>Color</h3>
+                <p>One palette, defined once.</p>
+              </div>
+            </article>
 
-      <div class="hero-actions">
-        <a href="#install" class="btn btn-primary">Get Started</a>
-        <a href="./docs/index.html" class="btn btn-secondary">View Docs →</a>
+            <article class="lp-tile">
+              <div class="lp-tile__art lp-type-sample" aria-hidden="true">
+                <span style="font-size: 88px; font-weight: 700">A</span>
+                <span style="font-size: 64px; font-weight: 500; color: var(--lp-label2)">a</span>
+                <span style="font-size: 44px; font-weight: 400; color: var(--lp-label2)">a</span>
+              </div>
+              <div class="lp-tile__text">
+                <h3>Typography</h3>
+                <p>A clear type scale for every page.</p>
+              </div>
+            </article>
+
+            <article class="lp-tile">
+              <div class="lp-tile__art lp-bars" aria-hidden="true">
+                <span style="height: 16px; background: var(--lp-bg3)"></span>
+                <span style="height: 28px; background: var(--lp-bg3)"></span>
+                <span style="height: 44px; opacity: 0.35"></span>
+                <span style="height: 64px; opacity: 0.55"></span>
+                <span style="height: 88px; opacity: 0.8"></span>
+                <span style="height: 116px; background: var(--lp-label)"></span>
+                <span style="height: 140px; background: var(--lp-accent)"></span>
+              </div>
+              <div class="lp-tile__text">
+                <h3>Spacing</h3>
+                <p>A consistent rhythm, no guesswork.</p>
+              </div>
+            </article>
+          </div>
+
+          <div class="lp-bento__row">
+            <article class="lp-tile lp-tile--wide">
+              <div class="lp-tile__text">
+                <h3 class="lp-tile__title">One line.<br>That's the setup.</h3>
+                <p>Add the stylesheet to your head and start building.</p>
+              </div>
+              <div class="lp-code">
+                <div class="lp-code__line"><span class="lp-code__dim">&lt;</span><span class="lp-code__key">link</span> <span class="lp-code__dim">rel=</span>"stylesheet"<br><span class="lp-code__dim">      href=</span>"https://cdn.jsdelivr.net/npm/kaple-css/dist/kaple.min.css"<span class="lp-code__dim">&gt;</span></div>
+              </div>
+            </article>
+
+            <article class="lp-tile lp-tile--wide">
+              <p class="lp-stack-label">Fits your stack</p>
+              <div class="lp-stack">
+                <div class="lp-stack__names">
+                  <span>React</span><span>Vue</span><span>Vite</span><span>Sass</span>
+                </div>
+                <p>Or plain HTML. It's just CSS.</p>
+              </div>
+            </article>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- ── INSTALL ── -->
-    <section class="install mt-6" id="install">
-      <div class="install-header">
-        <div class="install-eyebrow">Installation</div>
-        <h2 class="display-2">Three ways to<br><em>Get Started</em></h2>
-        <p>Pick the method that fits your workflow. All options deliver the full framework — no feature differences.</p>
+    <section id="install" class="lp-section">
+      <div class="lp-install">
+        <h2 class="lp-display">Three ways<br><span class="lp-dim">to get started.</span></h2>
+        <p class="lp-lead">Pick the method that fits your workflow. Every option delivers the full framework — no feature differences.</p>
+
+        <div class="lp-tabs" role="tablist" aria-label="Install method">
+          <button type="button" class="lp-tab" role="tab" id="tab-npm" aria-controls="panel-npm" aria-selected="true">npm</button>
+          <button type="button" class="lp-tab" role="tab" id="tab-cdn" aria-controls="panel-cdn" aria-selected="false" tabindex="-1">CDN</button>
+          <button type="button" class="lp-tab" role="tab" id="tab-dl" aria-controls="panel-dl" aria-selected="false" tabindex="-1">Download</button>
+        </div>
+
+        <div class="lp-panel" role="tabpanel" id="panel-npm" aria-labelledby="tab-npm" tabindex="0">
+          <div class="lp-panel__text">
+            <h3>Via npm</h3>
+            <p>Best for projects with a module bundler like Vite, Webpack or Parcel. Import it in your entry file.</p>
+          </div>
+          <div class="lp-code">
+            <div class="lp-code__bar">
+              <span>Terminal</span>
+              <button type="button" class="lp-copy" data-copy="npm install kaple-css">Copy</button>
+            </div>
+            <div class="lp-code__line"><span class="lp-code__dim">$ </span>npm install kaple-css</div>
+            <div class="lp-code__line"><span class="lp-code__dim">// main.js</span><br><span class="lp-code__key">import</span> 'kaple-css';</div>
+          </div>
+        </div>
+
+        <div class="lp-panel" role="tabpanel" id="panel-cdn" aria-labelledby="tab-cdn" tabindex="0" hidden>
+          <div class="lp-panel__text">
+            <h3>Via CDN</h3>
+            <p>One line in your HTML head. No setup, no tooling — works instantly in any browser.</p>
+          </div>
+          <div class="lp-code">
+            <div class="lp-code__bar">
+              <span>index.html</span>
+              <button type="button" class="lp-copy" data-copy='&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/kaple-css/dist/kaple.min.css"&gt;'>Copy</button>
+            </div>
+            <div class="lp-code__line"><span class="lp-code__dim">&lt;</span><span class="lp-code__key">link</span> <span class="lp-code__dim">rel=</span>"stylesheet"<br><span class="lp-code__dim">      href=</span>"https://cdn.jsdelivr.net/npm/kaple-css/dist/kaple.min.css"<span class="lp-code__dim">&gt;</span></div>
+          </div>
+        </div>
+
+        <div class="lp-panel" role="tabpanel" id="panel-dl" aria-labelledby="tab-dl" tabindex="0" hidden>
+          <div class="lp-panel__text">
+            <h3>Download the CSS file</h3>
+            <p>Grab the compiled stylesheet and host it yourself for full offline control.</p>
+          </div>
+          <div class="lp-file">
+            <div class="lp-file__info">
+              <div class="lp-file__icon" aria-hidden="true">
+                <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"></path><path d="M14 3v5h5"></path></svg>
+              </div>
+              <div class="lp-file__name">
+                <strong>kaple.min.css</strong>
+                <span>~54 kb · the full framework</span>
+              </div>
+            </div>
+            <a href="./dist/kaple.min.css" download="kaple.min.css" class="lp-btn lp-btn--accent lp-btn--sm">Download</a>
+          </div>
+        </div>
       </div>
-
-      <div class="cards-container">
-
-        <!-- npm -->
-        <div class="card">
-          <div class="img">
-            <svg viewBox="0 0 24 24">
-              <path d="M3 6h18v12H3zM9 6v12M15 6v6" />
-            </svg>
-          </div>
-          <h3>Via npm</h3>
-          <p>Best for projects with a module bundler like Vite, Webpack, or Parcel. Import in your entry file.</p>
-          <div class="snippet">
-            <span class="snippet-text">npm install kaple-css</span>
-            <button class="copy-btn" onclick="copySnippet('npm install kaple-css', this)">copy</button>
-          </div>
-        </div>
-
-        <!-- CDN -->
-        <div class="card">
-          <div class="img">
-            <svg viewBox="0 0 24 24">
-              <circle cx="12" cy="12" r="9" />
-              <path d="M3.6 9h16.8M3.6 15h16.8M12 3c-2 4-2 14 0 18M12 3c2 4 2 14 0 18" />
-            </svg>
-          </div>
-          <h3>Via CDN</h3>
-          <p>One line in your HTML head. No setup, no tooling — works instantly in any browser.</p>
-          <div class="snippet" style="flex-direction:column;align-items:flex-start;gap:5px">
-            <span style="opacity:.4;font-size:.65rem">&lt;link rel="stylesheet" href=</span>
-            <span class="snippet-text">"cdn.jsdelivr.net/npm/kaple-css/dist/kaple.min.css"</span>
-            <button class="copy-btn"
-              onclick="copySnippet('https://cdn.jsdelivr.net/npm/kaple-css/dist/kaple.min.css', this)"
-              style="align-self:flex-end">copy link</button>
-          </div>
-        </div>
-
-        <!-- Download -->
-        <div class="card">
-          <div class="img">
-            <svg viewBox="0 0 24 24">
-              <path d="M12 3v12m0 0-4-4m4 4 4-4M3 17v2a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2v-2" />
-            </svg>
-          </div>
-          <h3>Download CSS File</h3>
-          <p>Download the compiled CSS file from GitHub and host it yourself for full offline control.</p>
-          <div class="snippet">
-            <span class="snippet-text">kaple.min.css — ~54kb</span>
-            <a href="../dist/kaple.min.css" target="_blank" class="copy-btn" download="kaple.min.css">Download</a>
-          </div>
-        </div>
-
-      </div>
     </section>
 
-    <hr class="my-6">
+    <!-- ── TEMPLATES ── -->
+    <section id="templates" class="lp-section lp-section--alt">
+      <div class="lp-container">
+        <div class="lp-heading lp-templates__head">
+          <h2 class="lp-display">Pre-designed templates.<br><span class="lp-dim">A head start for every project.</span></h2>
+          <p class="lp-lead">Each template is a solid foundation for your next project — get started faster.</p>
+        </div>
 
-    <!-- ── ABOUT ── -->
-    <section class="about">
-      <h2 class="display-2">About <em>KapleCSS</em></h2>
-      <p>
-        KapleCSS is a minimal premium CSS framework designed to help developers
-        create beautiful, consistent websites with ease. Built on a foundation of
-        design tokens, it provides a single source of truth for colors, typography,
-        and spacing — keeping every project cohesive from day one.
-      </p>
-    </section>
-
-    <!-- ── CONTENT TEMPLATES ── -->
-
-    <section class="image-intro">
-      <img src="https://images8.alphacoders.com/135/1354199.jpeg" alt="kaplecss preview" class="intro-image">
-    </section>
-
-    <hr class="my-6">
-
-    <!-- ── CONTRIBUTING ── -->
-    <section class="contributing" id="contributing">
-
-      <div class="contrib-left">
-        <p class="contrib-eyebrow">Open Source</p>
-        <h2 class="contrib-title">Built in public.<br><em>Grow together.</em></h2>
-        <p class="contrib-desc">
-          KapleCSS is MIT-licensed and open to contributions. Found a bug?
-          Have an idea? Send a PR or open an issue — every contribution counts.
-        </p>
-        <div class="contrib-actions">
-          <a href="https://github.com/faazdy/kaple-css" target="_blank" class="btn-white">
-            <svg width="15" height="15" viewBox="0 0 24 24" fill="currentColor">
-              <path
-                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z" />
-            </svg>
-            View on GitHub
+        <div class="lp-templates__grid">
+          <a href="./templates/agency/index.html" class="lp-template" target="_blank" rel="noopener">
+            <img src="./templates/agency/imgs/prev.png" alt="" loading="lazy">
+            <span class="lp-template__caption">
+              <span class="lp-template__name"><span>Template</span><span>Startup</span></span>
+              <span class="lp-chevron-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </span>
+            </span>
           </a>
-          <a href="./docs/index.html" class="btn-ghost-white">Read Docs →</a>
+
+          <a href="./templates/pulse/index.html" class="lp-template" target="_blank" rel="noopener">
+            <img src="./templates/pulse/imgs/prev.png" alt="" loading="lazy">
+            <span class="lp-template__caption">
+              <span class="lp-template__name"><span>Platform</span><span>Pulse</span></span>
+              <span class="lp-chevron-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </span>
+            </span>
+          </a>
+
+          <a href="./templates/portfolio/index.html" class="lp-template" target="_blank" rel="noopener">
+            <img src="./templates/portfolio/imgs/prev.png" alt="" loading="lazy">
+            <span class="lp-template__caption">
+              <span class="lp-template__name"><span>Template</span><span>Portfolio</span></span>
+              <span class="lp-chevron-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </span>
+            </span>
+          </a>
+
+          <a href="./templates/mariarquitect/index.html" class="lp-template" target="_blank" rel="noopener">
+            <img src="./templates/mariarquitect/imgs/prev.png" alt="" loading="lazy">
+            <span class="lp-template__caption">
+              <span class="lp-template__name"><span>Business</span><span>Mariarquitect</span></span>
+              <span class="lp-chevron-circle" aria-hidden="true">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </span>
+            </span>
+          </a>
         </div>
       </div>
+    </section>
 
-      <div class="contrib-cards">
-        <div class="contrib-card">
-          <div class="contrib-card-icon">
-            <svg viewBox="0 0 24 24">
-              <path
-                d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.09-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"
-                fill="currentColor" />
-            </svg>
+    <!-- ── OPEN SOURCE ── -->
+    <section id="github" class="lp-oss">
+      <div class="lp-oss__grid">
+        <div class="lp-photo-card">
+          <img src="./landing/assets/imgs/image1.jpg" alt="" class="lp-photo-card__img" loading="lazy">
+          <div class="lp-photo-card__scrim" aria-hidden="true"></div>
+          <div class="lp-photo-card__body">
+            <span class="lp-badge">Open source</span>
+            <h2 class="lp-display lp-display--tight">Built in public.<br><span class="lp-dim-white">Grow together.</span></h2>
           </div>
-          <h4>Issues & PRs</h4>
-          <p>Report bugs, suggest features, or submit pull requests on GitHub.</p>
         </div>
 
-        <div class="contrib-card">
-          <div class="contrib-card-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M4 4h16a2 2 0 0 1 2 2v7a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2zm0 0 8 7 8-7" />
-            </svg>
+        <div class="lp-oss__panel">
+          <p class="lp-lead">KapleCSS is MIT-licensed and open to contributions. Found a bug? Have an idea? Send a PR or open an issue — every contribution counts.</p>
+          <ul class="lp-list">
+            <li>
+              <a href="https://github.com/faazdy/kaple-css/issues">
+                <span class="lp-list__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="18" cy="18" r="3"></circle><circle cx="6" cy="6" r="3"></circle><path d="M13 6h3a2 2 0 0 1 2 2v7"></path><path d="M6 9v12"></path></svg>
+                </span>
+                <span class="lp-list__text">
+                  <strong>Issues &amp; PRs</strong>
+                  <span>Report bugs, suggest features or submit pull requests.</span>
+                </span>
+                <svg class="lp-list__chevron" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/faazdy/kaple-css/pulls">
+                <span class="lp-list__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+                </span>
+                <span class="lp-list__text">
+                  <strong>Community</strong>
+                  <span>Contribute and share what you've built.</span>
+                </span>
+                <svg class="lp-list__chevron" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="./docs/index.html">
+                <span class="lp-list__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M2 4h6a4 4 0 0 1 4 4v13a3 3 0 0 0-3-3H2z"></path><path d="M22 4h-6a4 4 0 0 0-4 4v13a3 3 0 0 1 3-3h7z"></path></svg>
+                </span>
+                <span class="lp-list__text">
+                  <strong>Documentation</strong>
+                  <span>Full reference for every component, token and utility class.</span>
+                </span>
+                <svg class="lp-list__chevron" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </a>
+            </li>
+            <li>
+              <a href="https://github.com/faazdy/kaple-css">
+                <span class="lp-list__icon" aria-hidden="true">
+                  <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" stroke="none"><path d="M12 2.5l2.94 5.96 6.56.95-4.75 4.63 1.12 6.54L12 17.5l-5.87 3.08 1.12-6.54L2.5 9.41l6.56-.95z"></path></svg>
+                </span>
+                <span class="lp-list__text">
+                  <strong>Star it</strong>
+                  <span>If KapleCSS helps you, a star on GitHub supports the project.</span>
+                </span>
+                <svg class="lp-list__chevron" aria-hidden="true" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+              </a>
+            </li>
+          </ul>
+          <div class="lp-actions">
+            <a href="https://github.com/faazdy/kaple-css" class="lp-btn lp-btn--accent">View on GitHub</a>
+            <a href="./docs/index.html" class="lp-link lp-link--accent">Read the docs
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+            </a>
           </div>
-          <h4>Community</h4>
-          <p>Join the discussion and share what you've built with KapleCSS.</p>
-        </div>
-
-        <div class="contrib-card">
-          <div class="contrib-card-icon">
-            <svg viewBox="0 0 24 24">
-              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8zM14 2v6h6M8 13h8M8 17h5" />
-            </svg>
-          </div>
-          <h4>Documentation</h4>
-          <p>Full reference for every component, token, and utility class.</p>
-        </div>
-
-        <div class="contrib-card">
-          <div class="contrib-card-icon">
-            <svg viewBox="0 0 24 24">
-              <polygon points="12,2 15.1,8.3 22,9.3 17,14.1 18.2,21 12,17.8 5.8,21 7,14.1 2,9.3 8.9,8.3" />
-            </svg>
-          </div>
-          <h4>Star it</h4>
-          <p>If KapleCSS helps you, give it a star on GitHub to support the project.</p>
         </div>
       </div>
+    </section>
 
+    <!-- ── CTA ── -->
+    <section class="lp-cta">
+      <div class="lp-photo-card">
+        <img src="./landing/assets/imgs/image2.png" alt="" class="lp-photo-card__img" loading="lazy">
+        <div class="lp-photo-card__scrim" aria-hidden="true"></div>
+        <div class="lp-photo-card__body">
+          <span class="lp-badge">Get started</span>
+          <h2 class="lp-cta__title">Link one file.<br><span class="lp-dim-white">Ship beautiful UIs.</span></h2>
+          <div class="lp-actions">
+            <a href="#install" class="lp-btn lp-btn--accent">Get Started</a>
+            <a href="https://github.com/faazdy/kaple-css" class="lp-link lp-link--white">View on GitHub
+              <svg aria-hidden="true" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="m9 18 6-6-6-6"></path></svg>
+            </a>
+          </div>
+        </div>
+      </div>
     </section>
 
   </main>
 
   <!-- ── FOOTER ── -->
-  <footer>
-    <p>© 2026 KapleCSS · Built by <strong>faazdy</strong> · MIT License</p>
-    <div class="footer-links">
-      <a href="https://github.com/faazdy/kaple-css" target="_blank">GitHub</a>
-      <a href="./docs/index.html">Docs</a>
-      <a href="#">Changelog</a>
+  <footer class="lp-footer">
+    <div class="lp-footer__inner">
+      <div class="lp-footer__top">
+        <div class="lp-footer__brand">
+          <img src="./landing/assets/imgs/kaple-logo.png" alt="">KapleCSS
+        </div>
+        <div class="lp-footer__cols">
+          <div class="lp-footer__col">
+            <strong>Product</strong>
+            <a href="./docs/index.html">Docs</a>
+            <a href="#templates">Templates</a>
+            <a href="#install">Installation</a>
+          </div>
+          <div class="lp-footer__col">
+            <strong>Community</strong>
+            <a href="https://github.com/faazdy/kaple-css">GitHub</a>
+            <a href="https://www.npmjs.com/package/kaple-css">npm</a>
+          </div>
+        </div>
+      </div>
+      <div class="lp-footer__bottom">
+        <span>© 2026 KapleCSS · Built by faazdy</span>
+        <span>MIT License</span>
+      </div>
     </div>
   </footer>
 
