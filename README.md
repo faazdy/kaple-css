@@ -172,6 +172,30 @@ To customize a token in dark mode, cover both the OS preference and the manual t
 
 ---
 
+## AI Agents
+
+`skills/kaple-css/` is an [Agent Skill](https://agentskills.io/) that teaches AI coding
+agents (Claude Code, Codex, Cursor, GitHub Copilot, Gemini CLI and others) to build
+with the real KapleCSS classes and tokens instead of guessing Tailwind-style names.
+
+Get it in one of three ways:
+- **Download** `kaple-css-skill.zip` from the [landing page](https://kaplecss.vercel.app/#ai) or the docs.
+- **npm:** it ships with the package, in `node_modules/kaple-css/skills/kaple-css/`.
+- **This repo:** the `skills/kaple-css/` folder.
+
+Then put the `kaple-css` folder in your agent's skills directory, for example in Claude Code:
+```bash
+unzip kaple-css-skill.zip -d ~/.claude/skills                  # every project
+cp -r node_modules/kaple-css/skills/kaple-css .claude/skills/   # this project only
+```
+
+`npm run web:build` packs the zip into `web/downloads/` with `scripts/build-skill-zip.mjs`.
+
+`npm test` fails if the skill mentions a class or token that `dist/kaple.css` does not
+ship, so update `skills/kaple-css/references/` whenever a class is added or renamed.
+
+---
+
 ## Documentation
 
 For full documentation and component examples, check our [Documentation Page](https://kaplecss.vercel.app/docs/index.html).

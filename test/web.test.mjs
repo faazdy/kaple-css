@@ -10,7 +10,7 @@ import path from 'node:path';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 const web = path.join(root, 'web');
 // Folders that are not published: generated build output and gitignored design drafts.
-const skipped = new Set(['dist', 'design']);
+const skipped = new Set(['dist', 'design', 'downloads']);
 
 const htmlFiles = (dir) =>
   readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
@@ -24,10 +24,13 @@ const templates = readdirSync(path.join(web, 'templates'), { withFileTypes: true
   .filter((entry) => entry.isDirectory())
   .map((entry) => entry.name);
 
-// Where a published path lives in the repo before the build copies `dist/` into `web/`.
+// Where a published path lives in the repo before `npm run web:build` generates it:
+// web/dist/ is copied from dist/, and the skill zip is packed from skills/kaple-css/.
+const generated = { 'downloads/kaple-css-skill.zip': path.join(root, 'skills/kaple-css') };
 const sourceOf = (published) => {
-  const rel = path.relative(web, published);
-  return rel.split(path.sep)[0] === 'dist' ? path.join(root, rel) : published;
+  const rel = path.relative(web, published).split(path.sep).join('/');
+  if (generated[rel]) return generated[rel];
+  return rel.split('/')[0] === 'dist' ? path.join(root, rel) : published;
 };
 
 for (const page of pages) {
@@ -115,3 +118,11 @@ for (const file of cssFiles(web)) {
     }
   });
 }
+
+test('landing and docs offer the AI skill download', () => {
+  const landing = readFileSync(path.join(web, 'index.html'), 'utf8');
+  const docs = readFileSync(path.join(web, 'docs/index.html'), 'utf8');
+  assert.match(landing, /<a[^>]*href="\.\/downloads\/kaple-css-skill\.zip"[^>]*download/);
+  assert.match(docs, /<a[^>]*href="\.\.\/downloads\/kaple-css-skill\.zip"[^>]*download/);
+  assert.ok(docs.indexOf('kaple-css-skill.zip') < docs.indexOf('id="install"'), 'docs must show it before Installation');
+});

@@ -708,3 +708,17 @@ body.lp {
 .lp-footer__col strong { color: var(--lp-label); font-weight: 600; padding-bottom: 6px; }
 .lp-footer__col a { display: inline-flex; align-items: center; min-height: 44px; }
 .lp-footer__bottom { padding-top: 16px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 8px; }
+
+/* ── AI SKILL ── */
+.lp-ai { display: flex; flex-wrap: wrap; align-items: center; gap: 40px; }
+.lp-ai > * { flex: 1 1 420px; min-width: 0; }
+.lp-ai .lp-panel { margin-top: 0; }
+.lp-ai .lp-lead code {
+  font-family: var(--lp-font-mono);
+  font-size: 0.9em;
+  padding: 0.1em 0.35em;
+  border-radius: 6px;
+  border: 0;
+  background: var(--lp-bg3);
+  color: var(--lp-label);
+}

@@ -20,6 +20,7 @@
     "dist/",
     "scss/",
     "!scss/legacy/",
+    "skills/",
     "_index.scss"
   ],
   "scripts": {
@@ -29,7 +30,7 @@
     "watch": "sass scss/kaple.scss dist/kaple.css --watch --style=expanded --no-source-map",
     "test": "node --test \"test/**/*.test.mjs\"",
     "prepublishOnly": "npm run build && npm test",
-    "web:build": "node -e \"require('fs').cpSync('dist','web/dist',{recursive:true})\""
+    "web:build": "node -e \"require('fs').cpSync('dist','web/dist',{recursive:true})\" && node scripts/build-skill-zip.mjs"
   },
   "keywords": [
     "css",
